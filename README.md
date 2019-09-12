@@ -11,12 +11,12 @@ An official Tensorflow implementation of the paper "Unsupervised Keypoint Learni
 
 ## Datasets
 
-Download original datasets
+Download original versions
 1. [Penn_action](https://github.com/pytorch/pytorch)
 2. [UvA_Nemo](https://github.com/pytorch/pytorch)
 3. [MGIF](https://github.com/pytorch/pytorch)
 
-Download preprocessed datasets
+Download preprocessed versions
 1. [Penn_action](https://github.com/pytorch/pytorch)
 2. [UvA_Nemo](https://github.com/pytorch/pytorch)
 3. [MGIF](https://github.com/pytorch/pytorch)
@@ -26,8 +26,15 @@ Download preprocessed datasets
 ## Train
 
 ### 1. Train keypoints-detector and keypoints-guided-image-translator
+```
+python train_first.py
+```
 
-### 2. Make pseudo-keypoints-labels
+
+### 2. Make pseudo keypoints labels
+```
+python make_labels.py
+```
 
 Download pseudo-labels extracted from trained model
 1. [Penn_action](https://github.com/pytorch/pytorch)
@@ -35,10 +42,15 @@ Download pseudo-labels extracted from trained model
 3. [MGIF](https://github.com/pytorch/pytorch)
 
 ### 3. Train keypoints motion generator
-
+```
+python train_second.py
+```
 
 
 ## Test
+```
+python test.py
+```
 
 
 

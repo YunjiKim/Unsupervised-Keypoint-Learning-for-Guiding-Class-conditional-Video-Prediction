@@ -36,7 +36,7 @@ python train_first.py
 python make_labels.py
 ```
 
-Download pseudo-labels extracted from trained model
+Download pseudo-labels extracted from pretrained model
 1. [Penn_action](https://github.com/pytorch/pytorch)
 2. [UvA_Nemo](https://github.com/pytorch/pytorch)
 3. [MGIF](https://github.com/pytorch/pytorch)
@@ -52,6 +52,9 @@ python train_second.py
 python test.py
 ```
 
+Download pretrained model
+1. [first](https://github.com/pytorch/pytorch)
+2. [second](https://github.com/pytorch/pytorch)
 
 
 ## Results

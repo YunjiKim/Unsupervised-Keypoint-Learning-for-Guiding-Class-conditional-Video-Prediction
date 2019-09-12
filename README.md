@@ -4,7 +4,7 @@ An official Tensorflow implementation of the paper "Unsupervised Keypoint Learni
 ![Model architecture](model_overview.png)
 
 <p align="center">
-  <img src='model_overview.png' width="256" title="Github Logo">
+  <img src='model_overview.png' width="1024" title="Github Logo">
 </p>
 
 

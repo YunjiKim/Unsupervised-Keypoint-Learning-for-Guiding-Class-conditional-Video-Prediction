@@ -56,8 +56,8 @@ python test.py
 ```
 
 Download pretrained model
-1. [first](https://github.com/pytorch/pytorch)
-2. [second](https://github.com/pytorch/pytorch)
+1. [Keypoints Detector & Image Translator](https://github.com/pytorch/pytorch)
+2. [Motion Generator](https://github.com/pytorch/pytorch)
 
 
 ## Results

@@ -2,7 +2,7 @@
 An official Tensorflow implementation of the paper "Unsupervised Keypoint Learning for Guiding Class-Conditional Video Prediction", NeurIPS 2019
 
 <p align="left">
-  <img src='img/overview_.png' width="860" title="Overview">
+  <img src='img/model_overview.png' width="860" title="Overview">
 </p>
 
 

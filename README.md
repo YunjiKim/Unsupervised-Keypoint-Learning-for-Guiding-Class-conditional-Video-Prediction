@@ -1,5 +1,5 @@
-# Unsupervised Keypoint Learning <br/> for Guiding Class-conditional Video Prediction
-An official Tensorflow implementation of the paper "Unsupervised Keypoint Learning for Guiding Class-conditional Video Prediction", NeurIPS 2019
+# Unsupervised Keypoint Learning <br/> for Guiding Class-Conditional Video Prediction
+An official Tensorflow implementation of the paper "Unsupervised Keypoint Learning for Guiding Class-Conditional Video Prediction", NeurIPS 2019
 
 <p align="left">
   <img src='img/model_overview.png' width="860" title="Overview">
@@ -71,14 +71,9 @@ Download pretrained model
 Please cite our paper when you use this code.
 ```
 @inproceedings{yunji_neurips_2019,
-  title={Unsupervised Keypoint Learning for Guiding Class-conditional Video Prediction},
+  title={Unsupervised Keypoint Learning for Guiding Class-Conditional Video Prediction},
   author={Kim, Yunji and Nam, Seonghyeon and Cho, In and Kim, Seon Joo},
   booktitle={Advances in Neural Information Processing Systems (NeurIPS)},
   year={2019}
 }
 ```
-
-
-
-## Contact
-Please contact [kim_yunji@yonsei.ac.kr](kim_yunji@yonsei.ac.kr) if you have any question about this work.

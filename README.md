@@ -23,23 +23,23 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 #### 1. Train the keypoints detector & image translator
 ```
-python train_first.py
+python train_first.py configs/penn.yaml
 ```
 
 #### 2. Make pseudo-keypoints labels
 ```
-python make_labels.py
+python make_labels.py configs/penn.yaml
 ```
 
 #### 3. Train the motion generator
 ```
-python train_second.py
+python train_second.py configs/penn.yaml
 ```
 
 
 ## Test
 ```
-python test.py
+python test.py configs/penn.yaml
 ```
 
 Download pretrained model

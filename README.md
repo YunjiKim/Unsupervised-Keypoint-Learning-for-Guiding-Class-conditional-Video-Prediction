@@ -28,10 +28,6 @@ Download preprocessed versions
 
 ## Train
 
-Download pretrained model
-1. [Keypoints Detector & Image Translator](https://github.com/pytorch/pytorch)
-2. [Motion Generator](https://github.com/pytorch/pytorch)
-
 ### 1. Train keypoints-detector and keypoints-guided-image-translator
 ```
 python train_first.py

@@ -14,7 +14,9 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 ## Datasets
 
-1. [Penn_action](https://github.com/pytorch/pytorch)
+[Penn_action](https://github.com/pytorch/pytorch)
+
+1. split
 
 
 ## Train

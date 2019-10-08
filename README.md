@@ -14,7 +14,6 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 ## Datasets
 
-Download original versions
 1. [Penn_action](https://github.com/pytorch/pytorch)
 2. [UvA_Nemo](https://github.com/pytorch/pytorch)
 3. [MGIF](https://github.com/pytorch/pytorch)

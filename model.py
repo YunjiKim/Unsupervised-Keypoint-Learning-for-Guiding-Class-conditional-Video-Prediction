@@ -670,10 +670,9 @@ class MOGEN(object):
     print('Avg. samples per second %.3f'%samples_per_sec)
 
   
-class TEST(object):
+class Evalutate(object):
 
-  def __init__(self, sess, config, cell_info, vae_dim, global_step, training, dtype=tf.float32, name='TEST'):
-    # super(IMMModel, self).__init__(dtype, name)
+  def __init__(self, sess, config, cell_info, vae_dim, global_step, training, dtype=tf.float32, name='Evalutate'):
     self.config = config.model
     self.train_config = config.training
     self._global_step = global_step

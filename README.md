@@ -28,21 +28,19 @@ Download preprocessed versions
 
 ## Train
 
+Download pretrained model
+1. [Keypoints Detector & Image Translator](https://github.com/pytorch/pytorch)
+2. [Motion Generator](https://github.com/pytorch/pytorch)
+
 ### 1. Train keypoints-detector and keypoints-guided-image-translator
 ```
 python train_first.py
 ```
 
-
 ### 2. Make pseudo keypoints labels
 ```
 python make_labels.py
 ```
-
-Download pseudo-labels extracted from pretrained model
-1. [Penn_action](https://github.com/pytorch/pytorch)
-2. [UvA_Nemo](https://github.com/pytorch/pytorch)
-3. [MGIF](https://github.com/pytorch/pytorch)
 
 ### 3. Train keypoints motion generator
 ```

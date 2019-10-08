@@ -39,40 +39,10 @@ def colorize_landmark_maps(self, maps):
           for i in range(n_maps)]
   return tf.reduce_max(hmaps, axis=0)
 
-def translator(self, x, final_res=128):
-  with tf.variable_scope('translator'):
-    filters = self.config.n_filters * 8
-    size = x.shape.as_list()[1:3]
-    conv_id = 1
-    while size[0] <= final_res:
-      x = conv(x, filters, kernel=3, stride=1, scope='conv_%d_0'%conv_id)
-      x = batch_norm(x, self.train_mode, scope='b_norm_%d_0'%conv_id)
-      x = relu(x)
-      x = conv(x, filters, kernel=3, stride=1, scope='conv_%d_1'%conv_id)
-      x = batch_norm(x, self.train_mode, scope='b_norm_%d_1'%conv_id)
-      x = relu(x)
-      if size[0]==final_res:
-        crude_output = conv(x, 3, kernel=3, stride=1, scope='conv_%d_0'%(conv_id+1))
-        mask = conv(x, 1, kernel=3, stride=1, scope='conv_%d_1'%(conv_id+1))
-        mask = tf.nn.sigmoid(mask)
-        break
-      else:
-        x = conv(x, filters, kernel=3, stride=1, scope='conv_%d_0'%(conv_id+1))
-        x = batch_norm(x, self.train_mode, scope='b_norm_%d_0'%(conv_id+1))
-        x = relu(x)
-        x = conv(x, filters, kernel=3, stride=1, scope='conv_%d_1'%(conv_id+1))
-        x = batch_norm(x, self.train_mode, scope='b_norm_%d_1'%(conv_id+1))
-        x = relu(x)
-        x = tf.image.resize_images(x, [2 * s for s in size])
-      size = x.shape.as_list()[1:3]
-      conv_id += 2
-      if filters >= 8: filters /= 2
-  return crude_output, mask
-
-def encoder(self, x):
-  with tf.variable_scope('encoder'):
+def image_encoder(self, x):
+  with tf.variable_scope('image_encoder'):
     filters = self.config.n_filters
-    block_features = []
+    block_features = [x]
     x = conv(x, filters, kernel=7, stride=1, scope='conv_1')
     x = batch_norm(x, self.train_mode, scope='b_norm_1')
     x = relu(x)
@@ -89,13 +59,6 @@ def encoder(self, x):
       x = batch_norm(x, self.train_mode, scope='b_norm_%d'%(i*2+4))
       x = relu(x)
       block_features.append(x)
-    return block_features
-
-def image_encoder(self, x, filters=64):
-  with tf.variable_scope('image_encoder'):
-    block_features = self.encoder(x)
-    # add input image to supply max resulution features
-    block_features = [x] + block_features
     return block_features
 
 def get_coord(other_axis, axis_size):
@@ -144,6 +107,36 @@ def pose_encoder(self, x, filters=32, final_res=128):
     gauss_mu = tf.stack([gauss_x, gauss_y], axis=2)
     return gauss_mu
 
+def translator(self, x, final_res=128):
+  with tf.variable_scope('translator'):
+    filters = self.config.n_filters * 8
+    size = x.shape.as_list()[1:3]
+    conv_id = 1
+    while size[0] <= final_res:
+      x = conv(x, filters, kernel=3, stride=1, scope='conv_%d_0'%conv_id)
+      x = batch_norm(x, self.train_mode, scope='b_norm_%d_0'%conv_id)
+      x = relu(x)
+      x = conv(x, filters, kernel=3, stride=1, scope='conv_%d_1'%conv_id)
+      x = batch_norm(x, self.train_mode, scope='b_norm_%d_1'%conv_id)
+      x = relu(x)
+      if size[0]==final_res:
+        crude_output = conv(x, 3, kernel=3, stride=1, scope='conv_%d_0'%(conv_id+1))
+        mask = conv(x, 1, kernel=3, stride=1, scope='conv_%d_1'%(conv_id+1))
+        mask = tf.nn.sigmoid(mask)
+        break
+      else:
+        x = conv(x, filters, kernel=3, stride=1, scope='conv_%d_0'%(conv_id+1))
+        x = batch_norm(x, self.train_mode, scope='b_norm_%d_0'%(conv_id+1))
+        x = relu(x)
+        x = conv(x, filters, kernel=3, stride=1, scope='conv_%d_1'%(conv_id+1))
+        x = batch_norm(x, self.train_mode, scope='b_norm_%d_1'%(conv_id+1))
+        x = relu(x)
+        x = tf.image.resize_images(x, [2 * s for s in size])
+      size = x.shape.as_list()[1:3]
+      conv_id += 2
+      if filters >= 8: filters /= 2
+  return crude_output, mask
+  
 def decoder(self, input_, name='decoder'):
   out = linear(input_, self.config.n_maps*2, name='dec_fc2')
   return tanh(out)

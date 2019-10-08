@@ -11,7 +11,11 @@ from model import KD_IT
 from data_loader import Dataset
 
 
-config = yaml.load(open('configs/experiments/penn.yaml', 'r'), Loader=yaml.FullLoader)
+parser = argparse.ArgumentParser()
+parser.add_argument('--config_root', type=str, required=True, help='path of the configuration file')
+args = parser.parse_args()
+
+config = yaml.load(open(args.config_root, 'r'), Loader=yaml.FullLoader)
 train_config = config.training
 data_dir = train_config.datadir
 session_config = tf.ConfigProto(allow_soft_placement=True, log_device_placement=False)

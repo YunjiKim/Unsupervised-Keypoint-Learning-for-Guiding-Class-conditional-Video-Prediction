@@ -8,7 +8,7 @@ import argparse
 import yaml
 
 from model import MOGEN
-from unsup_seq_gen_gan.datasets import penn_dataset
+from data_loader import Dataset
 
 config = yaml.load(open('configs/experiments/penn.yaml', 'r'), Loader=yaml.FullLoader)
 train_config = config.training
@@ -21,10 +21,9 @@ with tf.Session(config=session_config) as sess:
     global_step = tf.Variable(0, trainable=False, name='global_step')
     
     # import dataset
-    dset_class = penn_dataset.Dataset
-    train_dset = dset_class(train_config.datadir, subset='train', n_action=opts['n_action'], n_landmark=opts['n_landmark'])
+    train_dset = Dataset(train_config.datadir, subset='train', n_action=opts['n_action'], n_landmark=opts['n_landmark'])
     train_dset = train_dset.get_dataset(opts['batch_size'], repeat=True, shuffle=True, num_preprocess_threads=4)
-    test_dset = dset_class(train_config.datadir, subset='test', n_action=opts['n_action'], n_landmark=opts['n_landmark'], order_stream= True, max_samples=1000)
+    test_dset = Dataset(train_config.datadir, subset='test', n_action=opts['n_action'], n_landmark=opts['n_landmark'], order_stream= True, max_samples=1000)
     test_dset = test_dset.get_dataset(opts['batch_size'], repeat=False, shuffle=False, num_preprocess_threads=4)
     
     # set up

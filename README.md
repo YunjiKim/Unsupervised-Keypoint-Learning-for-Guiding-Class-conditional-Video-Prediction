@@ -19,12 +19,6 @@ Download original versions
 2. [UvA_Nemo](https://github.com/pytorch/pytorch)
 3. [MGIF](https://github.com/pytorch/pytorch)
 
-Download preprocessed versions
-1. [Penn_action](https://github.com/pytorch/pytorch)
-2. [UvA_Nemo](https://github.com/pytorch/pytorch)
-3. [MGIF](https://github.com/pytorch/pytorch)
-
-
 
 ## Train
 

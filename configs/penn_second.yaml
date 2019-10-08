@@ -1,0 +1,15 @@
+
+opts = {}
+opts['n_summary'] = 500 # number of iterations after which to run the summary-op
+opts['n_test'] = 500
+opts['n_checkpoint'] = 20000 # number of iteration after which to save the model
+opts['batch_size'] = 16
+opts['n_action'] = 9
+opts['n_landmark'] = config.model.n_maps
+opts['cell_info'] = [1024, 1024]
+opts['vae_dim'] = 64
+
+###########################
+opts['log_dir'] = 'data/penn-40pts_seq_gen_test'
+checkpoint_fname = ''
+###########################

@@ -1,5 +1,5 @@
 # Unsupervised Keypoint Learning <br/> for Guiding Class-Conditional Video Prediction
-An official Tensorflow implementation of the paper "Unsupervised Keypoint Learning for Guiding Class-Conditional Video Prediction", NeurIPS 2019
+An official implementation of the paper "Unsupervised Keypoint Learning for Guiding Class-Conditional Video Prediction", NeurIPS 2019
 
 <p align="left">
   <img src='img/model_overview.png' width="860" title="Overview">

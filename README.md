@@ -23,7 +23,7 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 #### 1. Train the keypoints detector & image translator
 ```
-python train_first.py configs/penn.yaml
+python train_kd_it.py configs/penn.yaml
 ```
 
 #### 2. Make pseudo-keypoints labels
@@ -33,7 +33,7 @@ python make_labels.py configs/penn.yaml
 
 #### 3. Train the motion generator
 ```
-python train_second.py configs/penn.yaml
+python train_mogen.py configs/penn.yaml
 ```
 
 

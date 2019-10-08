@@ -11,63 +11,40 @@ import math
 
 
 def load_dataset(data_dir, subset):
-  load_subset = 'train' if subset in ['train', 'val'] else 'test'
-  with open(os.path.join(data_dir, 'penn_' + load_subset + '_set_add.txt'), 'r') as f:
+  
+  with open(os.path.join(data_dir, 'penn_' + load_subset + '_set.txt'), 'r') as f:
     images = f.read().splitlines()
-
-#   if subset in ['train', 'val']:
-#     # put the last 10 percent of the training aside for validation
-#     n_validation = int(round(0.1 * len(images)))
-#     if subset == 'train':
-#       images = images[:-n_validation]
-#     elif subset == 'val':
-#       images = images[-n_validation:]
-#     else:
-#       raise ValueError()
-
+    
   return images
   
 
-class PENNDataset(object):
+class Dataset(object):
   
   N_LANDMARKS = 13
   N_ACTION = 12
 
-  def __init__(self, data_dir, subset, max_samples=None,
-               image_size=[128, 128], order_stream=False, landmarks=False,
-               tps=False, vertical_points=10, horizontal_points=10,
-               rotsd=[0.0, 5.0], scalesd=[0.0, 0.1], transsd=[0.1, 0.1],
-               warpsd=[0.001, 0.005, 0.001, 0.01],
-               name='CelebADataset'):
+  def __init__(self, data_dir, subset, image_size=[128, 128], order_stream=False, landmarks=False):
 
     self._data_dir = data_dir
     self._order_stream = order_stream
-    self._max_samples = max_samples
     self._images = load_dataset(self._data_dir, subset)
     print(subset+'set : ', len(self._images))
-
 
   def _get_sample_dtype(self):
     d =  {'image': tf.float32,
           'landmarks': tf.float32,
           'future_image': tf.float32,
           'future_landmarks': tf.float32,
-          # 'box': tf.float32,
-#           'box_': tf.float32
           }
     return d
-
 
   def _get_sample_shape(self):
     d = {'image': [128, 128, 3],
          'landmarks': [self.N_LANDMARKS, 2],
          'future_image': [128, 128, 3],
-         'future_landmarks': [self.N_LANDMARKS, 2],
-        #  'box': [128, 128, 3],
-#          'box_': [4]
+         'future_landmarks': [self.N_LANDMARKS, 2]
          }
     return d
-
 
   def random_filter(self, im, future_im):
     r_id = random.randint(0,9)
@@ -116,13 +93,13 @@ class PENNDataset(object):
         future_im = ImageEnhance.Contrast(future_im).enhance(r_val*0.1)
         return np.asarray(im), np.asarray(future_im)
 
-
   def _proc_im_pair(self, inputs):
+    
     with tf.name_scope('proc_im_pair'):
       inputs = {'image': inputs['image']*2.0-1.0, 'future_image': inputs['future_image']*2.0-1.0,
                 'landmarks': (inputs['landmarks']-64.0)/64.0, 'future_landmarks': (inputs['future_landmarks']-64.0)/64.0}
+    
     return inputs
-
 
   def _get_image_test(self, idx):
         
@@ -136,7 +113,6 @@ class PENNDataset(object):
     keypoints = np.concatenate([np.expand_dims(mat_['x'], axis=-1), np.expand_dims(mat_['y'], axis=-1)], axis=-1)
     landmarks = keypoints[0, :, :]
     future_landmarks = keypoints[10, :, :]
-    # box = mat_['bbox'][10, :]
     
     w,h = image.size
     if w>h:

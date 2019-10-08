@@ -21,17 +21,17 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 ## Train
 
-### 1. Train keypoints-detector and keypoints-guided-image-translator
+### 1. Train the keypoints detector & image translator
 ```
 python train_first.py
 ```
 
-### 2. Make pseudo keypoints labels
+### 2. Make pseudo-keypoints labels
 ```
 python make_labels.py
 ```
 
-### 3. Train keypoints motion generator
+### 3. Train the motion generator
 ```
 python train_second.py
 ```

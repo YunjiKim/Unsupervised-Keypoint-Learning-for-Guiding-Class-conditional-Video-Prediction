@@ -39,7 +39,7 @@ python train_mogen.py configs/penn.yaml
 
 ## Test
 ```
-python test.py configs/penn.yaml
+python eval.py configs/penn.yaml
 ```
 
 Download pretrained model

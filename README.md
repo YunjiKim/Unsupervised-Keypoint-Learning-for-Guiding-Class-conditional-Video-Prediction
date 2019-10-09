@@ -54,11 +54,11 @@ python eval.py configs/penn.yaml
 #### Penn Action
 <p>
    <img src='img/tennis_serve.gif' width=92 />
-   <em>tennis_serve</em>
+   <br><em>tennis_serve</em>
    <img src='img/tennis_forehand.gif' width=92 />
-   <em>tennis_serve</em>
+   <br><em>tennis_serve</em>
    <img src='img/pull_up.gif' width=92 />
-   <em>tennis_serve</em>
+   <br><em>tennis_serve</em>
    <img src='img/jumping_jacks.gif' width=92 />
    <img src='img/golf_swing.gif' width=92 />
    <img src='img/clean_and_jerk.gif' width=92 />

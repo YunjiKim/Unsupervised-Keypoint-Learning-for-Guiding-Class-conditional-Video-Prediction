@@ -51,6 +51,7 @@ python eval.py configs/penn.yaml
 
 ## Results
 
+Penn Action
 <p>
    <img src='img/tennis_serve.gif' width=94 />
    <img src='img/tennis_forehand.gif' width=94 />
@@ -62,6 +63,10 @@ python eval.py configs/penn.yaml
    <img src='img/baseball_pitch.gif' width=94 />
    <img src='img/squats.gif' width=94 />
 </p>
+
+Nemo-UvA
+
+MGIF
 
 
 ## Citation

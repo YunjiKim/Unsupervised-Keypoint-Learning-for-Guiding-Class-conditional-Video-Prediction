@@ -61,7 +61,7 @@ python eval.py configs/penn.yaml
    <img src='img/clean_and_jerk.gif' width=90 />
    <img src='img/baseball_swing.gif' width=90 />
    <img src='img/baseball_pitch.gif' width=90 />
-   <img src='img/baseball_pitch.gif' width=90 />
+   <img src='img/squats.gif' width=90 />
 </p>
 
 

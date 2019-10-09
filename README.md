@@ -53,7 +53,8 @@ python eval.py configs/penn.yaml
 ## Results
 
 <p>
-    <img src='img/penn_start.png' width=150 />
+    <img src='img/penn_start.png' width=100 />
+    &nbsp;&nbsp;&nbsp;&nbsp;
     <img src='img/penn_real.gif' width=100 />
     <img src='img/penn_ours.gif' width=100 />
     <img src='img/penn_villegas.gif' width=100 />

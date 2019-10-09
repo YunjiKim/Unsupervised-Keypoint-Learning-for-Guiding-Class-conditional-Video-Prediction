@@ -6,17 +6,20 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 </p>
 
 
-## Requirements
+## Preparation
+
+#### Requirements
 - [PyTorch](https://github.com/pytorch/pytorch) 1.0
 - [torchfile](https://github.com/bshillingford/python-torchfile)
 
+This is [docker image](https://github.com/pytorch/pytorch).
 
+#### Dataset
+1. Download dataset from [here](https://github.com/pytorch/pytorch).
+2. Split each video into frames with separated directories.
 
-## Datasets
-
-[Penn_action](https://github.com/pytorch/pytorch)
-
-1. split
+#### Pretrained VGG-Net
+Please download pretrained VGG19 in npy format from [here](https://github.com/machrisaa/tensorflow-vgg).
 
 
 ## Train
@@ -42,16 +45,20 @@ python train_mogen.py configs/penn.yaml
 python eval.py configs/penn.yaml
 ```
 
-Download pretrained model
+#### Pretrained model
 1. [Keypoints Detector & Image Translator](https://github.com/pytorch/pytorch)
 2. [Motion Generator](https://github.com/pytorch/pytorch)
 
 
 ## Results
-%![Penn action](images/results_flowers.jpg)
-%![UvA-Nemo](images/results_birds.jpg)
-%![MGIF](images/results_birds.jpg)
 
+<p>
+    <img src='img/penn_real.gif' width=100 />
+    <img src='img/penn_ours.gif' width=100 />
+    <img src='img/penn_villegas.gif' width=100 />
+    <img src='img/penn_wichers.gif' width=100 />
+    <img src='img/penn_li.gif' width=100 />
+</p>
 
 
 ## Citation

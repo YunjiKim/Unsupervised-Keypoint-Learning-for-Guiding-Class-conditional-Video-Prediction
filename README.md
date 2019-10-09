@@ -68,12 +68,12 @@ python eval.py configs/penn.yaml
    <em>tennis_serve</em>
    <em>tennis_serve</em>
    <em>tennis_serve</em>
-   <img src='img/jumping_jacks.gif' width=92 />
-   <img src='img/golf_swing.gif' width=92 />
-   <img src='img/clean_and_jerk.gif' width=92 />
-   <img src='img/baseball_swing.gif' width=92 />
-   <img src='img/baseball_pitch.gif' width=92 />
-   <img src='img/squats.gif' width=92 />
+   <em>tennis_serve</em>
+   <em>tennis_serve</em>
+   <em>tennis_serve</em>
+   <em>tennis_serve</em>
+   <em>tennis_serve</em>
+   <em>tennis_serve</em>
 </p>
 
 

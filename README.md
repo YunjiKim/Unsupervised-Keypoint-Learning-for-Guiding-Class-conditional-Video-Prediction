@@ -53,17 +53,14 @@ python eval.py configs/penn.yaml
 ## Results
 
 <p>
-    <img src='img/penn_start.png' width=100 />
-    &nbsp;&nbsp;&nbsp;&nbsp;
-    <img src='img/penn_real.gif' width=100 />
-    <img src='img/penn_ours.gif' width=100 />
-    <img src='img/penn_villegas.gif' width=100 />
-    <img src='img/penn_wichers.gif' width=100 />
-    <img src='img/penn_li.gif' width=100 />
-</p>
-
-<p>
-    <img src='img/tennis_serve.gif' width=100 />
+   <img src='img/tennis_serve.gif' width=100 />
+   <img src='img/tennis_forehand.gif' width=100 />
+   <img src='img/pull_up.gif' width=100 />
+   <img src='img/jumping_jacks.gif' width=100 />
+   <img src='img/golf_swing.gif' width=100 />
+   <img src='img/clean_and_jerk.gif' width=100 />
+   <img src='img/baseball_swing.gif' width=100 />
+   <img src='img/baseball_pitch.gif' width=100 />
 </p>
 
 

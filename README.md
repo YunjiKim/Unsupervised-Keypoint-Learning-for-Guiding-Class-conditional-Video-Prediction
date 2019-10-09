@@ -53,19 +53,19 @@ python eval.py configs/penn.yaml
 
 #### Penn Action
 <p>
-   <img src='img/tennis_serve.gif' width=93 />
-   <img src='img/tennis_forehand.gif' width=93 />
-   <img src='img/pull_up.gif' width=93 />
-   <img src='img/jumping_jacks.gif' width=93 />
-   <img src='img/golf_swing.gif' width=93 />
-   <img src='img/clean_and_jerk.gif' width=93 />
-   <img src='img/baseball_swing.gif' width=93 />
-   <img src='img/baseball_pitch.gif' width=93 />
-   <img src='img/squats.gif' width=93 />
+   <img src='img/tennis_serve.gif' width=92 />
+   <img src='img/tennis_forehand.gif' width=92 />
+   <img src='img/pull_up.gif' width=92 />
+   <img src='img/jumping_jacks.gif' width=92 />
+   <img src='img/golf_swing.gif' width=92 />
+   <img src='img/clean_and_jerk.gif' width=92 />
+   <img src='img/baseball_swing.gif' width=92 />
+   <img src='img/baseball_pitch.gif' width=92 />
+   <img src='img/squats.gif' width=92 />
 </p>
 
 <p>
-   <'hi' width=94 />
+   <txt 'hi' width=94 />
    <img src='img/tennis_forehand.gif' width=94 />
    <img src='img/pull_up.gif' width=94 />
    <img src='img/jumping_jacks.gif' width=94 />

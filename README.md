@@ -68,7 +68,7 @@ python eval.py configs/penn.yaml
 <p align="center">
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;
-   <txt> Baseball pitch <txt>
+   <img src='img/input_act.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_real.gif' width=92 />
    &nbsp;&nbsp;
@@ -79,7 +79,7 @@ python eval.py configs/penn.yaml
 <br>
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;
-   <txt> Baseball pitch <txt>
+   <img src='img/input_act.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_real.gif' width=92 />
    &nbsp;&nbsp;

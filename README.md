@@ -69,6 +69,7 @@ python eval.py configs/penn.yaml
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_real.gif' width=92 />
+   &nbsp;&nbsp;
    <img src='img/penn_ours.gif' width=92 />
    <img src='img/penn_villegas.gif' width=92 />
    <img src='img/penn_wichers.gif' width=92 />

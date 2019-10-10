@@ -77,6 +77,10 @@ python eval.py configs/penn.yaml
    <img src='img/squats.gif' width=92 />
 </p>
 
+<p>
+   <img src='img/classes.png' width=828 />
+</p>
+
 #### MGIF
 <p>
    <img src='img/tennis_serve.gif' width=92 />

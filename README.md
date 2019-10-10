@@ -82,14 +82,14 @@ python eval.py configs/penn.yaml
 #### MGIF
 <p>
    <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_ours.gif' width=92 />
+   <img src='img/mgif_1.gif' width=92 />
+   <img src='img/mgif_2.gif' width=92 />
+   <img src='img/mgif_3.gif' width=92 />
+   <img src='img/mgif_4.gif' width=92 />
+   <img src='img/mgif_5.gif' width=92 />
+   <img src='img/mgif_6.gif' width=92 />
+   <img src='img/mgif_7.gif' width=92 />
+   <img src='img/mgif_8.gif' width=92 />
 </p>
 
 ## Citation

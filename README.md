@@ -64,7 +64,7 @@ python eval.py configs/penn.yaml
    <img src='img/squats.gif' width=92 />
 </p>
 
-<span style="font-family:Papyrus; font-size:1em;">LOVE!</span>
+<span style="font-family:Papyrus; font-size:0.4em;">LOVE!</span>
 <span style="font-family:Papyrus; font-size:1em;">LOVE!</span>
 
 

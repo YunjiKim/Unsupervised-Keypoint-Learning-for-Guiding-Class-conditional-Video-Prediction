@@ -18,7 +18,7 @@ This is [docker image](https://github.com/pytorch/pytorch).
 2. Split each video into frames with separated directories.
 
 #### Pretrained VGG-Net
-Download pretrained VGG19 in npy format from [here](https://github.com/machrisaa/tensorflow-vgg).
+Download pretrained VGG19 network from [here](https://github.com/machrisaa/tensorflow-vgg).
 
 
 ## Train

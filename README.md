@@ -64,15 +64,31 @@ python eval.py configs/penn.yaml
    <img src='img/squats.gif' width=92 />
 </p>
 
-###### tennis serve tennis forehand
-<font size="2"> tennis serve tennis forehand </font>
-<font size="1"> tennis serve tennis forehand </font>
-
-
 #### Nemo-UvA
+<p>
+   <img src='img/tennis_serve.gif' width=92 />
+   <img src='img/tennis_forehand.gif' width=92 />
+   <img src='img/pull_up.gif' width=92 />
+   <img src='img/jumping_jacks.gif' width=92 />
+   <img src='img/golf_swing.gif' width=92 />
+   <img src='img/clean_and_jerk.gif' width=92 />
+   <img src='img/baseball_swing.gif' width=92 />
+   <img src='img/baseball_pitch.gif' width=92 />
+   <img src='img/squats.gif' width=92 />
+</p>
 
 #### MGIF
-
+<p>
+   <img src='img/tennis_serve.gif' width=92 />
+   <img src='img/tennis_forehand.gif' width=92 />
+   <img src='img/pull_up.gif' width=92 />
+   <img src='img/jumping_jacks.gif' width=92 />
+   <img src='img/golf_swing.gif' width=92 />
+   <img src='img/clean_and_jerk.gif' width=92 />
+   <img src='img/baseball_swing.gif' width=92 />
+   <img src='img/baseball_pitch.gif' width=92 />
+   <img src='img/squats.gif' width=92 />
+</p>
 
 ## Citation
 Please cite our paper when you use this code.

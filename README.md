@@ -14,8 +14,7 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 This is [docker image](https://github.com/pytorch/pytorch).
 
 #### Dataset
-1. Download dataset from [here](http://dreamdragon.github.io/PennAction/).
-2. Split each video into frames with separated directories.
+Download dataset from [here](http://dreamdragon.github.io/PennAction/).
 
 #### Pretrained VGG-Net
 Download pretrained VGG19 network from [here](https://github.com/machrisaa/tensorflow-vgg).

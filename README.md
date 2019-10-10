@@ -19,6 +19,8 @@ Download dataset from [here](http://dreamdragon.github.io/PennAction/).
 #### Pretrained VGG-Net
 Download pretrained VGG19 network from [here](https://github.com/machrisaa/tensorflow-vgg).
 
+Configure paths for the dataset and pretrained VGG-Net network.
+
 
 ## Train
 
@@ -42,6 +44,7 @@ python train_mogen.py configs/penn.yaml
 ```
 python eval.py configs/penn.yaml
 ```
+
 
 #### Pretrained model
 1. [Keypoints Detector & Image Translator](https://github.com/pytorch/pytorch)

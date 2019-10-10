@@ -71,12 +71,12 @@ python eval.py configs/penn.yaml
    <img src='img/nemo_ours.gif' width=92 />
    <img src='img/nemo_1.gif' width=92 />
    <img src='img/nemo_2.gif' width=92 />
-   <img src='img/nemo_ours.gif' width=92 />
-   <img src='img/nemo_1.gif' width=92 />
-   <img src='img/nemo_2.gif' width=92 />
-   <img src='img/nemo_ours.gif' width=92 />
-   <img src='img/nemo_1.gif' width=92 />
-   <img src='img/nemo_2.gif' width=92 />
+   <img src='img/nemo_3.gif' width=92 />
+   <img src='img/nemo_4.gif' width=92 />
+   <img src='img/nemo_5.gif' width=92 />
+   <img src='img/nemo_6.gif' width=92 />
+   <img src='img/nemo_7.gif' width=92 />
+   <img src='img/nemo_8.gif' width=92 />
 </p>
 
 #### MGIF

@@ -64,7 +64,8 @@ python eval.py configs/penn.yaml
    <img src='img/squats.gif' width=92 />
 <br>
    <img src='img/classes.png' width=860 />
-<br>
+</p>
+<p>
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_real.gif' width=92 />

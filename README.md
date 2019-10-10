@@ -66,6 +66,8 @@ python eval.py configs/penn.yaml
    <img src='img/classes.png' width=860 />
 </p>
 <p align="center">
+   <img src='img/table_head.png' width=860 />
+<br>
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/input_act.png' width=92 />

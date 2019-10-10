@@ -18,7 +18,7 @@ This is [docker image](https://github.com/pytorch/pytorch).
 2. Split each video into frames with separated directories.
 
 #### Pretrained VGG-Net
-Please download pretrained VGG19 in npy format from [here](https://github.com/machrisaa/tensorflow-vgg).
+Download pretrained VGG19 in npy format from [here](https://github.com/machrisaa/tensorflow-vgg).
 
 
 ## Train
@@ -64,18 +64,9 @@ python eval.py configs/penn.yaml
    <img src='img/squats.gif' width=92 />
 </p>
 
-   <span style="font-family:Papyrus; font-size:4em;">LOVE!</span>
-   <span style="font-family:Papyrus; font-size:4em;">LOVE!</span>
 
 <p>
-   <em>tennis_serve</em>
-   <em>tennis_serve</em>
-   <em>tennis_serve</em>
-   <em>tennis_serve</em>
-   <em>tennis_serve</em>
-   <em>tennis_serve</em>
-   <em>tennis_serve</em>
-   <em>tennis_serve</em>
+   tennis serve tennis forehand
 </p>
 
 

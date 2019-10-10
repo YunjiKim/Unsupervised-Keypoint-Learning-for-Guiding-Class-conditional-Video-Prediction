@@ -19,7 +19,9 @@ Download dataset from [here](http://dreamdragon.github.io/PennAction/).
 #### Pretrained VGG-Net
 Download pretrained VGG19 network from [here](https://github.com/machrisaa/tensorflow-vgg).
 
+```
 Configure paths for the dataset and pretrained VGG-Net network.
+```
 
 
 ## Train

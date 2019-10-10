@@ -14,7 +14,7 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 This is [docker image](https://github.com/pytorch/pytorch).
 
 #### Dataset
-1. Download dataset from [here](https://github.com/pytorch/pytorch).
+1. Download dataset from [here](http://dreamdragon.github.io/PennAction/).
 2. Split each video into frames with separated directories.
 
 #### Pretrained VGG-Net
@@ -65,7 +65,7 @@ python eval.py configs/penn.yaml
 <br>
    <img src='img/classes.png' width=860 />
 </p>
-<p align="center">
+<p align="right">
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;
    <txt> Baseball pitch <txt>

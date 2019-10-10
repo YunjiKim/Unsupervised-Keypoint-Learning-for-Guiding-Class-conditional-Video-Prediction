@@ -65,7 +65,7 @@ python eval.py configs/penn.yaml
 <br>
    <img src='img/classes.png' width=860 />
 </p>
-<p>
+<p align="center">
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;&nbsp;&nbsp;
    <txt> Baseball pitch <txt>

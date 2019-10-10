@@ -67,13 +67,17 @@ python eval.py configs/penn.yaml
 </p>
 <p>
    <img src='img/penn_start.png' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <txt> Baseball pitch <txt>
    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_real.gif' width=92 />
-   &nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_ours.gif' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_villegas.gif' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_wichers.gif' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_li.gif' width=92 />
 <br>
    <img src='img/penn_start.png' width=92 />

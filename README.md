@@ -79,9 +79,6 @@ python eval.py configs/penn.yaml
    <img src='img/penn_wichers.gif' width=92 />
    <img src='img/penn_li.gif' width=92 />
 <br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/table_tail.png' width=500 />
-<br>
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/input_act.png' width=92 />
@@ -92,6 +89,9 @@ python eval.py configs/penn.yaml
    <img src='img/penn_villegas.gif' width=92 />
    <img src='img/penn_wichers.gif' width=92 />
    <img src='img/penn_li.gif' width=92 />
+<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <img src='img/table_tail.png' width=500 />
 </p>
 
 #### Nemo-UvA

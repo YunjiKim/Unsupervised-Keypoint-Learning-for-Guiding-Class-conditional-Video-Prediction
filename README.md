@@ -108,6 +108,36 @@ python eval.py configs/penn.yaml
    <img src='img/nemo_7.gif' width=92 />
    <img src='img/nemo_8.gif' width=92 />
 </p>
+<p align="center">
+   <img src='img/table_head.png' width=707 />
+<br>
+   <img src='img/penn_start.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/input_act.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/penn_real.gif' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/penn_ours.gif' width=92 />
+   <img src='img/penn_villegas.gif' width=92 />
+   <img src='img/penn_wichers.gif' width=92 />
+   <img src='img/penn_li.gif' width=92 />
+<br>
+   <img src='img/penn_start_2.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/input_act_2.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/penn_real_2.gif' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/penn_ours_2.gif' width=92 />
+   <img src='img/penn_villegas_2.gif' width=92 />
+   <img src='img/penn_wichers_2.gif' width=92 />
+   <img src='img/penn_li_2.gif' width=92 />
+<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <img src='img/table_tail.png' width=500 />
+</p>
 
 #### MGIF
 <p>
@@ -120,6 +150,36 @@ python eval.py configs/penn.yaml
    <img src='img/mgif_6.gif' width=92 />
    <img src='img/mgif_7.gif' width=92 />
    <img src='img/mgif_8.gif' width=92 />
+</p>
+<p align="center">
+   <img src='img/table_head.png' width=707 />
+<br>
+   <img src='img/penn_start.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/input_act.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/penn_real.gif' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/penn_ours.gif' width=92 />
+   <img src='img/penn_villegas.gif' width=92 />
+   <img src='img/penn_wichers.gif' width=92 />
+   <img src='img/penn_li.gif' width=92 />
+<br>
+   <img src='img/penn_start_2.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/input_act_2.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/penn_real_2.gif' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/penn_ours_2.gif' width=92 />
+   <img src='img/penn_villegas_2.gif' width=92 />
+   <img src='img/penn_wichers_2.gif' width=92 />
+   <img src='img/penn_li_2.gif' width=92 />
+<br>
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   <img src='img/table_tail.png' width=500 />
 </p>
 
 ## Citation

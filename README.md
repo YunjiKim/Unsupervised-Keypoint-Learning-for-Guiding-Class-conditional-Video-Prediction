@@ -23,6 +23,8 @@ For the training, pretrained VGG19 network is needed. It can be downloaded from 
 
 ## Train
 
+#### ※ Please adjust paths in configure file.
+
 #### 1. Train the keypoints detector & image translator
 ```
 python train_kd_it.py configs/penn.yaml

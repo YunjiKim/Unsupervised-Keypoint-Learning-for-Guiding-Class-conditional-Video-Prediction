@@ -2,6 +2,8 @@ paths:
   datadir: 'data/penn'
   log_dir: 'results/penn-40pts'
   vggnet: 'vgg19.npy'
+  checkpoint_kd_it: ''
+  checkpoint_mogen: ''
   
 training:
   dset: penn

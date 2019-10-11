@@ -8,11 +8,11 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 ## Requirements
 
-#### Dependencies
-- [PyTorch](https://github.com/pytorch/pytorch) 1.0
-- [torchfile](https://github.com/bshillingford/python-torchfile)
+- Linux
+- NVIDIA Titan XP
+- Tensorflow 1.3.0
 
-This is the pre-built [docker image](https://github.com/pytorch/pytorch) that this code can be run on.
+This is the pre-built [docker image](https://github.com/pytorch/pytorch) that can run this code.
 
 #### Dataset
 This code is for the Penn Action dataset. This dataset can be downloaded from [here](http://dreamdragon.github.io/PennAction/).

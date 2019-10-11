@@ -18,7 +18,7 @@ This is the pre-built [docker image](https://github.com/pytorch/pytorch) that th
 This code is for the Penn Action dataset. This dataset can be downloaded from [here](http://dreamdragon.github.io/PennAction/).
 
 #### Pretrained VGG-Net
-For the training, pretrained VGG19-Net is needed. It can be downloaded from [here](https://github.com/machrisaa/tensorflow-vgg).
+For the training, pretrained VGG19 network is needed. It can be downloaded from [here](https://github.com/machrisaa/tensorflow-vgg).
 
 
 ## Train

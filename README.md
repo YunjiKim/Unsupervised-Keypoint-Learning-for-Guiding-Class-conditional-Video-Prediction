@@ -124,6 +124,12 @@ python eval.py configs/penn.yaml
 </p>
 
 
+## Related Works
+[Villegas et. al.](https://github.com/rubenvillegas/icml2017hierchvid)
+[Wichers et. al.](https://github.com/brain-research/long-term-video-prediction-without-supervision)
+[Li et. al.](https://github.com/Yijunmaverick/FlowGrounded-VideoPrediction)
+
+
 ## Citation
 Please cite our paper when you use this code.
 ```

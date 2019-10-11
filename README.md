@@ -18,8 +18,7 @@ This is the pre-built [docker image](https://github.com/pytorch/pytorch) that th
 This code is for the Penn Action dataset, and this dataset can be downloaded from [here](http://dreamdragon.github.io/PennAction/).
 
 #### Pretrained VGG-Net
-For training of the keypoints detector and image translator, we need pretrained VGG19-Net for computing perception loss.
-Pretrained VGG19 network can be downloaded from [here](https://github.com/machrisaa/tensorflow-vgg).
+For training of the keypoints detector and image translator, we need pretrained VGG19-Net for computing perception loss. It can be downloaded from [here](https://github.com/machrisaa/tensorflow-vgg).
 
 
 ## Train

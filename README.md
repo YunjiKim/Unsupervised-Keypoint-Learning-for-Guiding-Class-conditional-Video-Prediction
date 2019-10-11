@@ -23,7 +23,7 @@ For the training, pretrained VGG19 network is needed. It can be downloaded from 
 
 ## Train
 
-#### ※ Please adjust paths in configure file.
+#### ※ Please adjust paths in the configure file.
 
 #### 1. Train the keypoints detector & image translator
 ```

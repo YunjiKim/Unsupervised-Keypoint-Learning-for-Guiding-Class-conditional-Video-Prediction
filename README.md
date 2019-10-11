@@ -12,6 +12,12 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 - NVIDIA Titan XP
 - Tensorflow 1.3.0
 
+#### Dependencies
+
+- Linux
+- NVIDIA Titan XP
+- Tensorflow 1.3.0
+
 This is the pre-built [docker image](https://github.com/pytorch/pytorch) that can run this code.
 
 #### Dataset

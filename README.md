@@ -8,6 +8,8 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 ## Requirements
 
+#### Dependencies
+
 - [PyTorch](https://github.com/pytorch/pytorch) 1.0
 - [torchfile](https://github.com/bshillingford/python-torchfile)
 

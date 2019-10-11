@@ -9,17 +9,18 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 ## Requirements
 
 #### Dependencies
-
 - [PyTorch](https://github.com/pytorch/pytorch) 1.0
 - [torchfile](https://github.com/bshillingford/python-torchfile)
 
-This is [docker image](https://github.com/pytorch/pytorch).
+This is the pre-built [docker image](https://github.com/pytorch/pytorch) that this code can be run on.
 
 #### Dataset
-Download dataset from [here](http://dreamdragon.github.io/PennAction/).
+We provide codes for training the model on Penn Action dataset.
+Penn Action can be downloaded from [here](http://dreamdragon.github.io/PennAction/).
 
 #### Pretrained VGG-Net
-Download pretrained VGG19 network from [here](https://github.com/machrisaa/tensorflow-vgg).
+For training of the keypoints detector and image translator, we need pretrained VGG19-Net for computing perception loss.
+Pretrained VGG19 network can be downloaded from [here](https://github.com/machrisaa/tensorflow-vgg).
 
 
 ## Train

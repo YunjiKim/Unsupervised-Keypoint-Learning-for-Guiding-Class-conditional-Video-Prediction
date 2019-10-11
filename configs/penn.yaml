@@ -1,8 +1,10 @@
-name: penn-40pts
-
+paths:
+  datadir: 'data/penn'
+  log_dir: 'results/penn-40pts'
+  vggnet: 'vgg19.npy'
+  
 training:
   dset: penn
-  datadir: /dataset/data/datasets/penn
   n_summary: 500
   n_test: 500
   n_checkpoint: 20000
@@ -10,7 +12,6 @@ training:
   n_action: 9
   cell_info: [1024, 1024]
   vae_dim: 64
-  log_dir: '/results/penn-40pts'
   checkpoint_fname: ''
   lr:
     start_val: 0.0001

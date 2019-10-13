@@ -108,8 +108,8 @@ python eval.py configs/penn.yaml
 <p align="center">
    <img src='img/table_head.png' width=707 />
 <br>
-   <img src='img/penn_text.png' width=100 />
-   &nbsp;&nbsp;
+   <img src='img/penn_text.png' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/input_act.png' width=92 />
@@ -121,8 +121,8 @@ python eval.py configs/penn.yaml
    <img src='img/penn_wichers.gif' width=92 />
    <img src='img/penn_li.gif' width=92 />
 <br>
-   <img src='img/nemo_text.png' width=100 />
-   &nbsp;&nbsp;
+   <img src='img/nemo_text.png' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_start_2.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/input_act_2.png' width=92 />
@@ -134,8 +134,8 @@ python eval.py configs/penn.yaml
    <img src='img/penn_wichers_2.gif' width=92 />
    <img src='img/penn_li_2.gif' width=92 />
 <br>
-   <img src='img/mgif_text.png' width=100 />
-   &nbsp;&nbsp;
+   <img src='img/mgif_text.png' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_start_2.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/input_act_2.png' width=92 />

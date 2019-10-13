@@ -112,12 +112,12 @@ python eval.py configs/penn.yaml
    &nbsp;&nbsp;
    <img src='img/tb_head_2.png' width=92 />
    &nbsp;&nbsp;
-   <img src='img/tb_blank.gif' width=92 />
+   <img src='img/tb_blank.png' width=92 />
    &nbsp;&nbsp;
-   <img src='img/tb_blank.gif' width=92 />
-   <img src='img/tb_head_3.gif' width=92 />
-   <img src='img/tb_blank.gif' width=92 />
-   <img src='img/tb_blank.gif' width=92 />
+   <img src='img/tb_blank.png' width=92 />
+   <img src='img/tb_head_3.png' width=92 />
+   <img src='img/tb_blank.png' width=92 />
+   <img src='img/tb_blank.png' width=92 />
 <br>
    <img src='img/penn_text.png' width=92 />
    &nbsp;&nbsp;&nbsp;&nbsp;

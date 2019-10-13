@@ -21,7 +21,7 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 This is the pre-built [docker image](https://github.com/pytorch/pytorch) that can run this code.
 
 #### ※ Dataset
-This code is for the Penn Action dataset. This dataset can be downloaded [here](http://dreamdragon.github.io/PennAction/).
+This code is for the Penn Action dataset. The dataset can be downloaded [here](http://dreamdragon.github.io/PennAction/).
 
 #### ※ Pretrained VGG-Net
 For the training, pretrained VGG19 network is needed. It can be downloaded [here](https://github.com/machrisaa/tensorflow-vgg).
@@ -29,7 +29,7 @@ For the training, pretrained VGG19 network is needed. It can be downloaded [here
 
 ## Train
 
-#### ※ Please adjust the paths for the inputs and outputs in the configuration file.
+#### ※ Please adjust the paths for inputs and outputs in the configuration file.
 
 #### 1. Train the keypoints detector & image translator
 ```

@@ -136,7 +136,7 @@ python eval.py configs/penn.yaml
    &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/penn_start_2.png' width=92 />
    &nbsp;&nbsp;
-   <img src='img/tb_blank.png' width=92 />
+   <img src='img/x.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_real_2.gif' width=92 />
    &nbsp;&nbsp;
@@ -147,7 +147,7 @@ python eval.py configs/penn.yaml
 <br>
    <img src='img/mgif_text.png' width=92 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/tb_blank.png' width=92 />
+   <img src='img/x.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/input_act_2.png' width=92 />
    &nbsp;&nbsp;
@@ -158,10 +158,18 @@ python eval.py configs/penn.yaml
    <img src='img/penn_wichers_2.gif' width=92 />
    <img src='img/penn_li_2.gif' width=92 />
 <br>
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/table_tail.png' width=500 />
+   <img src='img/tb_blank_2.png' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   <img src='img/tb_blank_2.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/tb_blank_2.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/tb_tail_1.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/tb_tail_2.png' width=92 />
+   <img src='img/tb_tail_3.png' width=92 />
+   <img src='img/tb_tail_4.png' width=92 />
+   <img src='img/tb_tail_5.png' width=92 />
 </p>
 
 

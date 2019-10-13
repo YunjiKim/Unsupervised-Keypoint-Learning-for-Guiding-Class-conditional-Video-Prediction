@@ -108,7 +108,7 @@ python eval.py configs/penn.yaml
 <p align="center">
    <img src='img/table_head.png' width=707 />
 <br>
-   <img src='img/input_act.png' width=92 />
+   <img src='img/penn_text.png' width=100 />
    &nbsp;&nbsp;
    <img src='img/penn_start.png' width=92 />
    &nbsp;&nbsp;

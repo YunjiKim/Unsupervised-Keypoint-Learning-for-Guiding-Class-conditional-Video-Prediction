@@ -103,7 +103,7 @@ python eval.py configs/penn.yaml
    <img src='img/mgif_8.gif' width=92 />
 </p>
 
-#### ※ Comparison with the baseline methods
+#### ※ COMPARISON WITH THE BASELINE METHODS
 <p align="center">
    <img src='img/table_head.png' width=707 />
 <br>

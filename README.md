@@ -133,11 +133,10 @@ python eval.py configs/penn.yaml
 
 
 ## Related Works
-[Villegas et. al.](https://github.com/rubenvillegas/icml2017hierchvid)
-<br>
-[Wichers et. al.](https://github.com/brain-research/long-term-video-prediction-without-supervision)
-<br>
-[Li et. al.](https://github.com/Yijunmaverick/FlowGrounded-VideoPrediction)
+Unsupervised Learning of Object Landmarks through Conditional Image Generation", TJakab and Gupta et. al., NeurIPS, 2018. [[code](https://github.com/tomasjakab/imm)]<br>
+Learning to Generate Long-term Future via Hierarchical Prediction, Villegas et. al., ICML, 2017. [[code](https://github.com/rubenvillegas/icml2017hierchvid)]<br>
+Hierarchical Long-term Video Prediction without Supervision, Wichers et. al., ICML, 2018. [[code](https://github.com/brain-research/long-term-video-prediction-without-supervision)]<br>
+Flow-Grounded Spatial-Temporal Video Prediction from Still Images, Li et. al., ECCV, 2018. [[code](https://github.com/Yijunmaverick/FlowGrounded-VideoPrediction)]
 
 
 ## Citation

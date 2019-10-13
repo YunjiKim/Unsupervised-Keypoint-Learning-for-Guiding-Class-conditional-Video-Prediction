@@ -60,7 +60,7 @@ python eval.py configs/penn.yaml
 
 ## Results
 
-#### Penn Action
+#### ※ Penn Action
 <p>
    <img src='img/tennis_serve.gif' width=92 />
    <img src='img/tennis_forehand.gif' width=92 />
@@ -105,7 +105,7 @@ python eval.py configs/penn.yaml
    <img src='img/table_tail.png' width=500 />
 </p>
 
-#### Nemo-UvA
+#### ※ Nemo-UvA
 <p>
    <img src='img/nemo_ours.gif' width=92 />
    <img src='img/nemo_1.gif' width=92 />
@@ -118,7 +118,7 @@ python eval.py configs/penn.yaml
    <img src='img/nemo_8.gif' width=92 />
 </p>
 
-#### MGIF
+#### ※ MGIF
 <p>
    <img src='img/mgif_ours.gif' width=92 />
    <img src='img/mgif_1.gif' width=92 />

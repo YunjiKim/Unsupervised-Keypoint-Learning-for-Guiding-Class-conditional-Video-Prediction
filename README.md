@@ -79,7 +79,7 @@ python eval.py configs/penn.yaml
 
 #### ※ UvA-NEMO
 <p>
-   <img src='img/nemo_ours.gif' width=92 />
+   <img src='img/nemo_0.gif' width=92 />
    <img src='img/nemo_1.gif' width=92 />
    <img src='img/nemo_2.gif' width=92 />
    <img src='img/nemo_3.gif' width=92 />
@@ -92,7 +92,7 @@ python eval.py configs/penn.yaml
 
 #### ※ MGIF
 <p>
-   <img src='img/mgif_ours.gif' width=92 />
+   <img src='img/mgif_0.gif' width=92 />
    <img src='img/mgif_1.gif' width=92 />
    <img src='img/mgif_2.gif' width=92 />
    <img src='img/mgif_3.gif' width=92 />

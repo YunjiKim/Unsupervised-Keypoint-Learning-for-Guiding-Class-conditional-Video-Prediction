@@ -194,7 +194,7 @@ Hierarchical Long-term Video Prediction without Supervision, Wichers et. al., IC
 Flow-Grounded Spatial-Temporal Video Prediction from Still Images, Li et. al., ECCV, 2018. [[code](https://github.com/Yijunmaverick/FlowGrounded-VideoPrediction)]
 
 
-### Citation
+### ※ Citation
 Please cite our paper when you use this code.
 ```
 @inproceedings{yunji_neurips_2019,

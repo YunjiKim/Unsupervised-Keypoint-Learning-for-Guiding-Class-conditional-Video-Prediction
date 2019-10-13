@@ -147,7 +147,7 @@ python eval.py configs/penn.yaml
 <br>
    <img src='img/nemo_text.png' width=92 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/penn_start_2.png' width=92 />
+   <img src='img/nemo_start.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/x.png' width=92 />
    &nbsp;&nbsp;
@@ -160,7 +160,7 @@ python eval.py configs/penn.yaml
 <br>
    <img src='img/mgif_text.png' width=92 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/penn_start_2.png' width=92 />
+   <img src='img/mgif_start.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/x.png' width=92 />
    &nbsp;&nbsp;

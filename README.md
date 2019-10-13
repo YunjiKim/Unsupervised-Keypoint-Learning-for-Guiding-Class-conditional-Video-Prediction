@@ -147,9 +147,9 @@ python eval.py configs/penn.yaml
 <br>
    <img src='img/mgif_text.png' width=92 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/x.png' width=92 />
+   <img src='img/penn_start_2.png' width=92 />
    &nbsp;&nbsp;
-   <img src='img/input_act_2.png' width=92 />
+   <img src='img/x.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_real_2.gif' width=92 />
    &nbsp;&nbsp;

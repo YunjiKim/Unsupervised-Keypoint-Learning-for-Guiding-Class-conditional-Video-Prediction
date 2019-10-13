@@ -60,7 +60,7 @@ python eval.py configs/penn.yaml
 
 ## IV. Results
 
-###### All videos were generated from a single input image.
+###### ※※※ All videos were generated from a single input image. ※※※
 
 #### ※ Penn Action
 <p>
@@ -103,7 +103,8 @@ python eval.py configs/penn.yaml
    <img src='img/mgif_8.gif' width=92 />
 </p>
 
-#### ※ COMPARISON WITH THE BASELINE METHODS
+###### ※※※ Qualitative comparison with the baseline methods. ※※※
+
 <p align="center">
    <img src='img/table_head.png' width=707 />
 <br>

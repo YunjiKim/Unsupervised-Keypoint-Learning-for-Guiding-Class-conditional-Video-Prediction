@@ -6,7 +6,7 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 </p>
 
 
-## Requirements
+## I. Requirements
 
 - Linux
 - NVIDIA Titan XP
@@ -27,7 +27,7 @@ This code is for the Penn Action dataset. The dataset can be downloaded [here](h
 For the training, pretrained VGG19 network is needed. It can be downloaded [here](https://github.com/machrisaa/tensorflow-vgg).
 
 
-## Train
+## II. Train
 
 ###### ※※※ Please adjust the paths for inputs and outputs in the configuration file. ※※※
 
@@ -47,7 +47,7 @@ python train_mogen.py configs/penn.yaml
 ```
 
 
-## Test
+## III. Test
 ```
 python eval.py configs/penn.yaml
 ```
@@ -58,7 +58,7 @@ python eval.py configs/penn.yaml
 2. [Motion Generator](https://github.com/pytorch/pytorch)
 
 
-## Results
+## IV. Results
 
 ###### All videos were generated from a single input image.
 
@@ -135,7 +135,7 @@ python eval.py configs/penn.yaml
 </p>
 
 
-## Related Works
+## V. Related Works
 Unsupervised Learning of Object Landmarks through Conditional Image Generation, Jakab & Gupta et. al., NeurIPS, 2018. [[code](https://github.com/tomasjakab/imm)]<br>
 Learning to Generate Long-term Future via Hierarchical Prediction, Villegas et. al., ICML, 2017. [[code](https://github.com/rubenvillegas/icml2017hierchvid)]<br>
 Hierarchical Long-term Video Prediction without Supervision, Wichers et. al., ICML, 2018. [[code](https://github.com/brain-research/long-term-video-prediction-without-supervision)]<br>

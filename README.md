@@ -29,7 +29,7 @@ For the training, pretrained VGG19 network is needed. It can be downloaded [here
 
 ## Train
 
-###### ※ Please adjust the paths for inputs and outputs in the configuration file.
+###### ※※※ Please adjust the paths for inputs and outputs in the configuration file. ※※※
 
 #### 1. Train the keypoints detector & image translator
 ```
@@ -60,7 +60,7 @@ python eval.py configs/penn.yaml
 
 ## Results
 
-###### All videos were generated from single input image.
+###### All videos were generated from a single input image.
 
 #### ※ Penn Action
 <p>

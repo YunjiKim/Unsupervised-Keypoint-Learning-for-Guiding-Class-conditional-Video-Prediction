@@ -106,7 +106,18 @@ python eval.py configs/penn.yaml
 ###### ※※※ Qualitative comparison with the baseline methods. ※※※
 
 <p align="center">
-   <img src='img/table_head.png' width=707 />
+   <img src='img/tb_blank.png' width=92 />
+   &nbsp;&nbsp;&nbsp;&nbsp;
+   <img src='img/tb_head_1.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/tb_head_2.png' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/tb_blank.gif' width=92 />
+   &nbsp;&nbsp;
+   <img src='img/tb_blank.gif' width=92 />
+   <img src='img/tb_head_3.gif' width=92 />
+   <img src='img/tb_blank.gif' width=92 />
+   <img src='img/tb_blank.gif' width=92 />
 <br>
    <img src='img/penn_text.png' width=92 />
    &nbsp;&nbsp;&nbsp;&nbsp;

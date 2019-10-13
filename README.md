@@ -77,6 +77,33 @@ python eval.py configs/penn.yaml
    <img src='img/classes.png' width=860 />
 </p>
 
+#### ※ Nemo-UvA
+<p>
+   <img src='img/nemo_ours.gif' width=92 />
+   <img src='img/nemo_1.gif' width=92 />
+   <img src='img/nemo_2.gif' width=92 />
+   <img src='img/nemo_3.gif' width=92 />
+   <img src='img/nemo_4.gif' width=92 />
+   <img src='img/nemo_5.gif' width=92 />
+   <img src='img/nemo_6.gif' width=92 />
+   <img src='img/nemo_7.gif' width=92 />
+   <img src='img/nemo_8.gif' width=92 />
+</p>
+
+#### ※ MGIF
+<p>
+   <img src='img/mgif_ours.gif' width=92 />
+   <img src='img/mgif_1.gif' width=92 />
+   <img src='img/mgif_2.gif' width=92 />
+   <img src='img/mgif_3.gif' width=92 />
+   <img src='img/mgif_4.gif' width=92 />
+   <img src='img/mgif_5.gif' width=92 />
+   <img src='img/mgif_6.gif' width=92 />
+   <img src='img/mgif_7.gif' width=92 />
+   <img src='img/mgif_8.gif' width=92 />
+</p>
+
+#### ※ Comparison with the baseline methods
 <p align="center">
    <img src='img/table_head.png' width=707 />
 <br>
@@ -108,31 +135,6 @@ python eval.py configs/penn.yaml
    <img src='img/table_tail.png' width=500 />
 </p>
 
-#### ※ Nemo-UvA
-<p>
-   <img src='img/nemo_ours.gif' width=92 />
-   <img src='img/nemo_1.gif' width=92 />
-   <img src='img/nemo_2.gif' width=92 />
-   <img src='img/nemo_3.gif' width=92 />
-   <img src='img/nemo_4.gif' width=92 />
-   <img src='img/nemo_5.gif' width=92 />
-   <img src='img/nemo_6.gif' width=92 />
-   <img src='img/nemo_7.gif' width=92 />
-   <img src='img/nemo_8.gif' width=92 />
-</p>
-
-#### ※ MGIF
-<p>
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/mgif_1.gif' width=92 />
-   <img src='img/mgif_2.gif' width=92 />
-   <img src='img/mgif_3.gif' width=92 />
-   <img src='img/mgif_4.gif' width=92 />
-   <img src='img/mgif_5.gif' width=92 />
-   <img src='img/mgif_6.gif' width=92 />
-   <img src='img/mgif_7.gif' width=92 />
-   <img src='img/mgif_8.gif' width=92 />
-</p>
 
 
 ## V. Related Works

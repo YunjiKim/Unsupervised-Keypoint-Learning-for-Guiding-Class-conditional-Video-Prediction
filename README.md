@@ -62,7 +62,7 @@ python eval.py configs/penn.yaml
 
 ###### ※※※ All videos were generated from a single input image. ※※※
 
-#### ※ Penn Action
+#### Penn Action
 <p>
    <img src='img/tennis_serve.gif' width=92 />
    <img src='img/tennis_forehand.gif' width=92 />
@@ -77,7 +77,7 @@ python eval.py configs/penn.yaml
    <img src='img/classes.png' width=860 />
 </p>
 
-#### ※ UvA-NEMO
+#### UvA-NEMO
 <p>
    <img src='img/nemo_0.gif' width=92 />
    <img src='img/nemo_1.gif' width=92 />
@@ -90,7 +90,7 @@ python eval.py configs/penn.yaml
    <img src='img/nemo_8.gif' width=92 />
 </p>
 
-#### ※ MGIF
+#### MGIF
 <p>
    <img src='img/mgif_0.gif' width=92 />
    <img src='img/mgif_1.gif' width=92 />
@@ -103,7 +103,7 @@ python eval.py configs/penn.yaml
    <img src='img/mgif_8.gif' width=92 />
 </p>
 
-###### ※※※ Qualitative comparison with the baseline methods. ※※※
+###### ※※※ Qualitative comparison of the results. ※※※
 
 <p align="center">
    <img src='img/tb_blank.png' width=92 />

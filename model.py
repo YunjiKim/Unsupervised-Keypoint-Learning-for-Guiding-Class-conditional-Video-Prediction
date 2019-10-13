@@ -85,10 +85,6 @@ def batch_norm(x, train_mode, scope='batch_norm'):
                                         epsilon=1e-05,
                                         center=True, scale=True,
                                         scope=scope, is_training=train_mode)
-  
-def decoder(self, input_, name='decoder'):
-  out = linear(input_, self.config.n_maps*2, name='dec_fc2')
-  return tf.tanh(out)
 
 def lstm_model(self, layers):
   lstm_cells = [tf.nn.rnn_cell.BasicLSTMCell(units, state_is_tuple=True) for units in layers]
@@ -96,6 +92,27 @@ def lstm_model(self, layers):
   stacked_lstm = tf.nn.rnn_cell.MultiRNNCell(lstm_cells, state_is_tuple=True)
   return stacked_lstm
 
+def linear(input_,
+           output_size,
+           name,
+           stddev=0.02,
+           bias_start=0.0,
+           reuse=False,
+           with_w=False):
+  shape = input_.get_shape().as_list()
+
+  with tf.variable_scope(name, reuse=reuse):
+    matrix = tf.get_variable(
+        "Matrix", [shape[1], output_size],
+        tf.float32,
+        tf.random_normal_initializer(stddev=stddev))
+    bias = tf.get_variable(
+        "bias", [output_size], initializer=tf.constant_initializer(bias_start))
+    if with_w:
+      return tf.matmul(input_, matrix) + bias, matrix, bias
+    else:
+      return tf.matmul(input_, matrix) + bias
+    
 #######################
 
 def image_encoder(self, x):
@@ -197,9 +214,14 @@ def vae_encoder(self, x, f_pt, act_code):
     stddev = logit[:, self.vae_dim:]
     return mu, stddev
 
+def decoder(self, input_, name='decoder'):
+  out = 
+  return 
+  
 def vae_decoder(self, x, f_pt, act_code):
   with tf.variable_scope('vae_decoder', reuse=tf.AUTO_REUSE):
     cell = self.lstm_model(self.cell_info)
+    decoder = tf.group(linear(input_, self.config.n_maps*2), tf.tanh(out))
     state = cell.zero_state(tf.shape(x)[0], tf.float32)
     input_ = tf.contrib.layers.fully_connected(tf.concat([x, f_pt, act_code], axis = -1), 32)
     empty_input = tf.zeros_like(input_)

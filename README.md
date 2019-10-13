@@ -77,7 +77,7 @@ python eval.py configs/penn.yaml
    <img src='img/classes.png' width=860 />
 </p>
 
-#### ※ Nemo-UvA
+#### ※ UvA-NEMO
 <p>
    <img src='img/nemo_ours.gif' width=92 />
    <img src='img/nemo_1.gif' width=92 />
@@ -121,7 +121,7 @@ python eval.py configs/penn.yaml
    <img src='img/penn_wichers.gif' width=92 />
    <img src='img/penn_li.gif' width=92 />
 <br>
-   <img src='img/input_act.png' width=92 />
+   <img src='img/nemo_text.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_start_2.png' width=92 />
    &nbsp;&nbsp;
@@ -134,7 +134,7 @@ python eval.py configs/penn.yaml
    <img src='img/penn_wichers_2.gif' width=92 />
    <img src='img/penn_li_2.gif' width=92 />
 <br>
-   <img src='img/input_act.png' width=92 />
+   <img src='img/mgif_text.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_start_2.png' width=92 />
    &nbsp;&nbsp;

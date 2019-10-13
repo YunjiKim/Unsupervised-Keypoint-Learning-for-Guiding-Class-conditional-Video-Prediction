@@ -421,37 +421,6 @@ class KD_IT(object):
     train_handle = self.sess.run(train_iterator.string_handle())
     self.sess.run(train_iterator.initializer)
     test_handle = self.sess.run(test_iterator.string_handle())
-    # check if we need to restore the model:
-    if tf.gfile.Exists(checkpoint_fname) or tf.gfile.Exists(checkpoint_fname+'.index'):
-      print(colorize('RESTORING MODEL from: '+checkpoint_fname, 'blue', bold=True))
-      if not isinstance(vars_to_restore,list):
-        if vars_to_restore == 'all':
-          vars_to_restore = tf.global_variables()
-        elif vars_to_restore == 'model':
-          vars_to_restore = tf.get_collection(tf.GraphKeys.MODEL_VARIABLES)
-      if reset_global_step >= 0:
-        print(colorize('Setting global-step to %d.'%reset_global_step,'red',bold=True))
-        var_names = [v.name for v in vars_to_restore]
-        reset_vid = [i for i in range(len(var_names)) if 'global_step' in var_names[i]]
-        if reset_vid:
-          vars_to_restore.pop(reset_vid[0])
-      print(colorize('vars-to-be-restored:','green',bold=True))
-      print(colorize(', '.join([v.name for v in vars_to_restore]),'green'))
-      if ignore_missing_vars:
-        reader = tf.train.NewCheckpointReader(checkpoint_fname)
-        checkpoint_vars = reader.get_variable_to_shape_map().keys()
-        vars_ignored = [v.name for v in vars_to_restore if v.name[:-2] not in checkpoint_vars]
-        print(colorize('vars-IGNORED (not restoring):','blue',bold=True))
-        print(colorize(', '.join(vars_ignored),'blue'))
-        vars_to_restore = [v for v in vars_to_restore if v.name[:-2] in checkpoint_vars]
-      if exclude_vars:
-        for exclude_var_name in exclude_vars:
-          var_names = [v.name for v in vars_to_restore]
-          reset_vid = [i for i in range(len(var_names)) if exclude_var_name in var_names[i]]
-          if reset_vid:
-            vars_to_restore.pop(reset_vid[0])
-      restorer = tf.train.Saver(var_list=vars_to_restore)
-      restorer.restore(self.sess,checkpoint_fname)
 
     # create a summary writer:
     train_writer = tf.summary.FileWriter(osp.join(opts['log_dir'], 'train'), self.sess.graph)
@@ -631,37 +600,6 @@ class MOGEN(object):
     train_handle = self.sess.run(train_iterator.string_handle())
     self.sess.run(train_iterator.initializer)
     test_handle = self.sess.run(test_iterator.string_handle())
-    # check if we need to restore the model:
-    if tf.gfile.Exists(checkpoint_fname) or tf.gfile.Exists(checkpoint_fname+'.index'):
-      print(colorize('RESTORING MODEL from: '+checkpoint_fname, 'blue', bold=True))
-      if not isinstance(vars_to_restore,list):
-        if vars_to_restore == 'all':
-          vars_to_restore = tf.global_variables()
-        elif vars_to_restore == 'model':
-          vars_to_restore = tf.get_collection(tf.GraphKeys.MODEL_VARIABLES)
-      if reset_global_step >= 0:
-        print(colorize('Setting global-step to %d.'%reset_global_step,'red',bold=True))
-        var_names = [v.name for v in vars_to_restore]
-        reset_vid = [i for i in range(len(var_names)) if 'global_step' in var_names[i]]
-        if reset_vid:
-          vars_to_restore.pop(reset_vid[0])
-      print(colorize('vars-to-be-restored:','green',bold=True))
-      print(colorize(', '.join([v.name for v in vars_to_restore]),'green'))
-      if ignore_missing_vars:
-        reader = tf.train.NewCheckpointReader(checkpoint_fname)
-        checkpoint_vars = reader.get_variable_to_shape_map().keys()
-        vars_ignored = [v.name for v in vars_to_restore if v.name[:-2] not in checkpoint_vars]
-        print(colorize('vars-IGNORED (not restoring):','blue',bold=True))
-        print(colorize(', '.join(vars_ignored),'blue'))
-        vars_to_restore = [v for v in vars_to_restore if v.name[:-2] in checkpoint_vars]
-      if exclude_vars:
-        for exclude_var_name in exclude_vars:
-          var_names = [v.name for v in vars_to_restore]
-          reset_vid = [i for i in range(len(var_names)) if exclude_var_name in var_names[i]]
-          if reset_vid:
-            vars_to_restore.pop(reset_vid[0])
-      restorer = tf.train.Saver(var_list=vars_to_restore)
-      restorer.restore(self.sess,checkpoint_fname)
     # create a summary writer:
     train_writer = tf.summary.FileWriter(osp.join(opts['log_dir'], 'train'), self.sess.graph)
     test_writer = tf.summary.FileWriter(osp.join(opts['log_dir'], 'test'))
@@ -887,13 +825,11 @@ class EVAL(object):
     pred_im_seq_ = tf.reshape(final_output, [-1,32,128,128,3])
     for i in range(32):
         pred_im_seq.append(pred_im_seq_[:,i,::])
-#         pred_im_seq.append(tf.image.resize_images(pred_im_seq_[:,i,::], [64,64]))
     pred_im_seq = tf.concat(pred_im_seq, axis = 2)
     
     real_im_seq = []
     for i in range(32):
         real_im_seq.append(im_seq[:,i,::])
-#         real_im_seq.append(tf.image.resize_images(im_seq[:,i,::], [64,64]))
     real_im_seq = tf.concat(real_im_seq, axis = 2)    
     
     mask_seq = []
@@ -906,23 +842,7 @@ class EVAL(object):
     crude_im_seq_ = tf.reshape(crude_output, [-1,32,128,128,3])
     for i in range(32):
         crude_im_seq.append(crude_im_seq_[:,i,::])
-#         pred_im_seq.append(tf.image.resize_images(pred_im_seq_[:,i,::], [64,64]))
     crude_im_seq = tf.concat(crude_im_seq, axis = 2)
-    
-    # visualize images:
-    self.first_pt = tf.summary.image('first_pt', self.colorize_landmark_maps(first_pt_map), max_outputs=2)
-    self.im_sum = tf.summary.image('im', (im+1)/2.0*255.0, max_outputs=2)
-    self.pred_p_seq = tf.summary.image('predicted_pose_sequence', self.colorize_landmark_maps(pred_seq_img), max_outputs=2)
-    self.real_p_seq = tf.summary.image('real_pose_sequence', self.colorize_landmark_maps(real_seq_img), max_outputs=2)
-    self.pred_im_seq = tf.summary.image('predicted_image_sequence', \
-                                        tf.clip_by_value((pred_im_seq+1)/2.0*255.0, 0, 255), max_outputs=2)
-    self.real_im_seq = tf.summary.image('real_image_sequence', \
-                                        tf.clip_by_value((real_im_seq+1)/2.0*255.0, 0, 255), max_outputs=2)
-    self.mask_sum = tf.summary.image('mask', mask_seq*255.0, max_outputs=2)
-    self.crude_im_seq = tf.summary.image('crude_image_sequence', \
-                                        tf.clip_by_value((crude_im_seq+1)/2.0*255.0, 0, 255), max_outputs=2)
-    self.image_summary = tf.summary.merge([self.im_sum, self.first_pt, self.pred_p_seq, self.real_p_seq, \
-                                           self.pred_im_seq, self.real_im_seq, self.mask_sum, self.crude_im_seq])
     
     self.loss_ = None
 

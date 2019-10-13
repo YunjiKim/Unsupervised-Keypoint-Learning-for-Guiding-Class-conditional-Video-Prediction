@@ -74,6 +74,9 @@ python eval.py configs/penn.yaml
 <br>
    <img src='img/classes.png' width=860 />
 </p>
+
+###### Qualitative comparison with the baseline methods
+
 <p align="center">
    <img src='img/table_head.png' width=707 />
 <br>

@@ -141,7 +141,7 @@ python eval.py configs/penn.yaml
    <img src='img/penn_real_2.gif' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_ours_2.gif' width=92 />
-   <img src='img/x.gif' width=92 />
+   <img src='img/x.png' width=92 />
    <img src='img/penn_wichers_2.gif' width=92 />
    <img src='img/penn_li_2.gif' width=92 />
 <br>
@@ -154,7 +154,7 @@ python eval.py configs/penn.yaml
    <img src='img/penn_real_2.gif' width=92 />
    &nbsp;&nbsp;
    <img src='img/penn_ours_2.gif' width=92 />
-   <img src='img/x.gif' width=92 />
+   <img src='img/x.png' width=92 />
    <img src='img/penn_wichers_2.gif' width=92 />
    <img src='img/penn_li_2.gif' width=92 />
 <br>

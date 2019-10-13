@@ -12,7 +12,7 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 - NVIDIA Titan XP
 - Tensorflow 1.3.0
 
-#### Dependencies
+#### ※ Dependencies
 
 - Linux
 - NVIDIA Titan XP
@@ -20,10 +20,10 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 This is the pre-built [docker image](https://github.com/pytorch/pytorch) that can run this code.
 
-#### Dataset
+#### ※ Dataset
 This code is for the Penn Action dataset. This dataset can be downloaded [here](http://dreamdragon.github.io/PennAction/).
 
-#### Pretrained VGG-Net
+#### ※ Pretrained VGG-Net
 For the training, pretrained VGG19 network is needed. It can be downloaded [here](https://github.com/machrisaa/tensorflow-vgg).
 
 

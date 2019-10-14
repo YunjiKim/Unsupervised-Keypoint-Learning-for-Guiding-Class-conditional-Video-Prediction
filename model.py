@@ -11,7 +11,7 @@ import os.path as osp
 import os
 
 
-#######################
+####################### jakab's code
 
 def get_random_color(pastel_factor = 0.5):
   return [(x+pastel_factor)/(1.0+pastel_factor) for x in [random.uniform(0,1.0) for i in [1,2,3]]]
@@ -69,7 +69,7 @@ def get_coord(other_axis, axis_size):
   g_c = tf.reduce_sum(g_c_prob * coord_pt, axis=1)
   return g_c, g_c_prob
 
-#######################
+####################### base blocks
 
 def conv(x, channels, kernel=4, stride=2, pad=0, use_bias=True, scope='conv_0'):
     with tf.variable_scope(scope):
@@ -81,39 +81,9 @@ def conv(x, channels, kernel=4, stride=2, pad=0, use_bias=True, scope='conv_0'):
         return x
 
 def batch_norm(x, train_mode, scope='batch_norm'):
-    return tf_contrib.layers.batch_norm(x,
-                                        epsilon=1e-05,
-                                        center=True, scale=True,
-                                        scope=scope, is_training=train_mode)
+    return tf_contrib.layers.batch_norm(x, epsilon=1e-05, center=True, scale=True, scope=scope, is_training=train_mode)
 
-def lstm_model(self, layers):
-  lstm_cells = [tf.nn.rnn_cell.BasicLSTMCell(units, state_is_tuple=True) for units in layers]
-  lstm_cells = [tf.nn.rnn_cell.DropoutWrapper(cell, input_keep_prob=1.0) for cell in lstm_cells]
-  stacked_lstm = tf.nn.rnn_cell.MultiRNNCell(lstm_cells, state_is_tuple=True)
-  return stacked_lstm
-
-def linear(input_,
-           output_size,
-           name,
-           stddev=0.02,
-           bias_start=0.0,
-           reuse=False,
-           with_w=False):
-  shape = input_.get_shape().as_list()
-
-  with tf.variable_scope(name, reuse=reuse):
-    matrix = tf.get_variable(
-        "Matrix", [shape[1], output_size],
-        tf.float32,
-        tf.random_normal_initializer(stddev=stddev))
-    bias = tf.get_variable(
-        "bias", [output_size], initializer=tf.constant_initializer(bias_start))
-    if with_w:
-      return tf.matmul(input_, matrix) + bias, matrix, bias
-    else:
-      return tf.matmul(input_, matrix) + bias
-    
-#######################
+####################### modules
 
 def image_encoder(self, x):
   with tf.variable_scope('image_encoder'):
@@ -202,31 +172,40 @@ def translator(self, x, final_res=128):
       size = x.shape.as_list()[1:3]
       conv_id += 2
       if filters >= 8: filters /= 2
-  return crude_output, mask
+    return crude_output, mask
 
+def lstm_model(self, layers):
+  lstm_cells = [tf.nn.rnn_cell.BasicLSTMCell(units, state_is_tuple=True) for units in layers]
+  lstm_cells = [tf.nn.rnn_cell.DropoutWrapper(cell, input_keep_prob=1.0) for cell in lstm_cells]
+  stacked_lstm = tf.nn.rnn_cell.MultiRNNCell(lstm_cells, state_is_tuple=True)
+  return stacked_lstm
+
+def decoder(input_, name, stddev=0.02, bias_start=0.0, reuse=False):
+  shape = input_.get_shape().as_list()
+  output_size = self.config.n_maps*2
+  with tf.variable_scope(name, reuse=tf.AUTO_REUSE):
+    matrix = tf.get_variable("Matrix", [shape[1], output_size], tf.float32, tf.random_normal_initializer(stddev=stddev))
+    bias = tf.get_variable("bias", [output_size], initializer=tf.constant_initializer(bias_start))
+    return tf.tanh(tf.matmul(input_, matrix) + bias)
+    
 def vae_encoder(self, x, f_pt, act_code):     
   with tf.variable_scope('vae_encoder'):
-    cell = self.lstm_model(self.cell_info)
+    cell = lstm_model(self.cell_info)
     state = cell.zero_state(tf.shape(x)[0], tf.float32)
     outputs, _ = tf.nn.dynamic_rnn(cell, x, initial_state=state, dtype=tf.float32)
     logit = tf.contrib.layers.fully_connected(tf.concat([outputs[:,-1,:], f_pt, act_code], axis = -1), self.vae_dim*2)
     mu = logit[:, :self.vae_dim]
     stddev = logit[:, self.vae_dim:]
     return mu, stddev
-
-def decoder(self, input_, name='decoder'):
-  out = 
-  return 
   
 def vae_decoder(self, x, f_pt, act_code):
   with tf.variable_scope('vae_decoder', reuse=tf.AUTO_REUSE):
-    cell = self.lstm_model(self.cell_info)
-    decoder = tf.group(linear(input_, self.config.n_maps*2), tf.tanh(out))
+    cell = lstm_model(self.cell_info)
     state = cell.zero_state(tf.shape(x)[0], tf.float32)
     input_ = tf.contrib.layers.fully_connected(tf.concat([x, f_pt, act_code], axis = -1), 32)
     empty_input = tf.zeros_like(input_)
     outputs = []
-    output, state = cell(input_, state)
+    output, state = cell(input_, state) 
     outputs.append(tf.expand_dims(decoder(output), axis = 1))
     for i in range(31):
       output, state = cell(empty_input, state)
@@ -254,7 +233,7 @@ def img_discr(self, x):
     logit = conv(x, channels=1, kernel=3, stride=1, pad=1, use_bias=False, scope='D_logit')
     return logit
 
-#######################
+####################### pretrained vggnet
   
 class Vgg19:
   def __init__(self, vgg19_npy_path=None):
@@ -314,8 +293,7 @@ class Vgg19:
     return tf.constant(self.data_dict[name][1], name="biases")
 
   
-#######################
-
+####################### builders for training
 
 class KD_IT(object):
   def __init__(self, sess, config, global_step, training, dtype=tf.float32, name='KD_IT'):
@@ -365,8 +343,6 @@ class KD_IT(object):
     
     # generate translated images
     im, future_im = inputs['image'], inputs['future_image']
-    future_im_size = future_im.shape.as_list()[1:3]
-    assert future_im_size[0] == future_im_size[1]
     future_im_size = future_im_size[0]
     embeddings = self.image_encoder(im)
     current_gauss_pt = self.pose_encoder(im)
@@ -381,7 +357,6 @@ class KD_IT(object):
     # compute loss
     self.loss_G_ = self.loss_D_ = None
     if build_loss:
-      # compute the losses:
       self.loss_D_ = self.loss_D(final_output, future_im, future_landmarks_map)
       self.loss_G_ = self.loss_G(final_output, crude_output, future_im, future_landmarks_map)
       t_vars = tf.trainable_variables()
@@ -394,30 +369,29 @@ class KD_IT(object):
       with tf.control_dependencies(update_ops):
           self.train_op_G = tf.train.AdamOptimizer(lr, beta1=0.5, beta2=0.999).minimize(self.loss_G_, var_list=G_vars, global_step=self._global_step)
  
-    # visualize images:
+    # visualization
     current_landmarks_map = get_gaussian_maps(current_gauss_pt, [128, 128], 1.0 / self.config.gauss_std)
     future_landmarks_map = get_gaussian_maps(future_gauss_pt, [128, 128], 1.0 / self.config.gauss_std)
     self.future_im_sum = tf.summary.image('future_im', (future_im+1)/2.0*255.0, max_outputs=2)
     self.im_sum = tf.summary.image('im', (im+1)/2.0*255.0, max_outputs=2)
     self.cur_pt_sum = tf.summary.image('current_points', self.colorize_landmark_maps(current_landmarks_map), max_outputs=2)
     self.fut_pt_sum = tf.summary.image('future_points', self.colorize_landmark_maps(future_landmarks_map), max_outputs=2)
-    self.crude_im_sum = tf.summary.image('future_im_crude', tf.clip_by_value((crude_output+1)/2.0*255.0, 0, 255), max_outputs=2)
-    self.pred_im_sum = tf.summary.image('future_im_pred', tf.clip_by_value((final_output+1)/2.0*255.0, 0, 255), max_outputs=2)
-    self.mask_sum = tf.summary.image('mask', mask*255.0, max_outputs=2)
+    self.synth_im_sum = tf.summary.image('synth_im', tf.clip_by_value((crude_output+1)/2.0*255.0, 0, 255), max_outputs=2)
+    self.blended_im_sum = tf.summary.image('blended_im', tf.clip_by_value((final_output+1)/2.0*255.0, 0, 255), max_outputs=2)
+    self.background_mask_sum = tf.summary.image('background_mask', mask*255.0, max_outputs=2)
     self.image_summary = tf.summary.merge([self.future_im_sum, self.im_sum, self.cur_pt_sum, self.fut_pt_sum, self.crude_im_sum, self.pred_im_sum, self.mask_sum])
-    self.tensor = {'future_im': future_im, 'im': im, 'future_im_pred': final_output, 'mask': mask, 'future_im_crude': crude_output, 'gauss_pt': future_gauss_pt,
-                   'current_points': self.colorize_landmark_maps(current_landmarks_map), 'future_points': self.colorize_landmark_maps(future_landmarks_map)}
-
+    
   def train_loop(self, opts, train_dataset, test_dataset, training_pl, handle_pl, num_steps, checkpoint_fname, reset_global_step = -1, vars_to_restore='all',\
                 ignore_missing_vars=False, exclude_vars=False):
     tf.logging.set_verbosity(tf.logging.INFO)
-    # define iterators
+    
+    # define and set up iterators
     train_iterator = train_dataset.make_initializable_iterator()
     test_iterator = test_dataset.make_initializable_iterator()
     global_init = tf.global_variables_initializer()
     local_init = tf.local_variables_initializer()
     self.sess.run([global_init,local_init])
-    # set up iterators
+
     train_handle = self.sess.run(train_iterator.string_handle())
     self.sess.run(train_iterator.initializer)
     test_handle = self.sess.run(test_iterator.string_handle())
@@ -427,6 +401,7 @@ class KD_IT(object):
     test_writer = tf.summary.FileWriter(osp.join(opts['log_dir'], 'test'))
     # create a check-pointer:
     saver = tf.train.Saver(tf.global_variables(), max_to_keep=None)
+    
     # run the training loop:
     start_step = self.sess.run(self._global_step)
     begin_time = time.time()
@@ -446,15 +421,14 @@ class KD_IT(object):
         loss_value_D, _ = self.sess.run([self.loss_D_, self.train_op_D], feed_dict=feed_dict)
         loss_value_G, _ = self.sess.run([self.loss_G_, self.train_op_G], feed_dict=feed_dict)
       duration = time.time() - start_time
-      # make sure that we have non NaNs:
-      assert not np.isnan(loss_value_D), 'D_Model diverged with loss = NaN'
-      assert not np.isnan(loss_value_G), 'G_Model diverged with loss = NaN'
+      
       if step % 250 == 0:
         # print stats for this batch:
         examples_per_sec = opts['batch_size'] / float(duration)
         format_str = '%s: step %d, loss_D = %.4f, loss_G = %.4f (%.1f examples/sec) %.3f sec/batch'
         tf.logging.info(format_str % (datetime.now(), step, loss_value_D, loss_value_G,
                         examples_per_sec, duration))
+        
       # periodically test on test set
       if test_dataset and step % opts['n_test'] == 0:
         feed_dict = {handle_pl: test_handle, training_pl: False}
@@ -481,18 +455,17 @@ class KD_IT(object):
             print('iteration through test set finished')
             break
           test_iter += 1
-      # periodically checkpoint:
+          
+      # periodically save checkpoint:
       if step % opts['n_checkpoint'] == 0:
         checkpoint_path = osp.join(opts['log_dir'],'model.ckpt')
         saver.save(self.sess, checkpoint_path, global_step=step)
+        
     total_time = time.time()-begin_time
     samples_per_sec = opts['batch_size'] * num_steps / float(total_time)
     print('Avg. samples per second %.3f'%samples_per_sec)
   
-  
 #######################
-
-  
   
 class MOGEN(object):
   def __init__(self, sess, config, cell_info, vae_dim, global_step, training, dtype=tf.float32, name='MOGEN'):
@@ -530,7 +503,7 @@ class MOGEN(object):
     return kl_loss + pred_seq_loss + adv_loss
 
   def build(self, inputs, output_tensors=False):
-    # generate samples
+    # generate future keypoints sequence
     im, landmarks, real_seq, act_code = inputs['image'], inputs['landmarks'], inputs['real_seq'], inputs['action_code']
     first_pt = tf.reshape(landmarks, [-1, self.config.n_maps*2])
     if self.train_mode == True:
@@ -541,6 +514,20 @@ class MOGEN(object):
       z = tf.random_normal([tf.shape(first_pt)[0]]+[self.vae_dim], 0, 1, dtype=tf.float32)
       pred_seq = self.vae_decoder(z, first_pt, act_code)
         
+    # compute loss
+    self.loss_G_ = self.loss_D_ = None
+    if self.train_mode == True:
+      self.loss_D_ = self.loss_D(pred_seq, tf.reshape(real_seq, [-1, 32, self.config.n_maps*2]))
+      self.loss_G_ = self.loss_G(pred_seq, tf.reshape(real_seq, [-1, 32, self.config.n_maps*2]), mu, stddev)
+      t_vars = tf.trainable_variables()
+      G_vars = [var for var in t_vars if 'discr' not in var.name]
+      D_vars = [var for var in t_vars if 'discr' in var.name]
+      lr = tf.train.exponential_decay(self.train_config.lr.start_val, self._global_step, self.train_config.lr.step, self.train_config.lr.decay)
+      self.lr_ = tf.summary.scalar('lr', lr)
+      self.train_op_D = tf.train.AdamOptimizer(lr, beta1=0.5, beta2=0.999).minimize(self.loss_D_, var_list=D_vars)
+      self.train_op_G = tf.train.AdamOptimizer(lr, beta1=0.5, beta2=0.999).minimize(self.loss_G_, var_list=G_vars, global_step=self._global_step)
+    
+    # visualize images
     pred_seq_img = []
     for i in range(32):
       gauss_map = get_gaussian_maps(tf.reshape(pred_seq[:,i,::], [-1, self.config.n_maps, 2]), [64, 64], 1.0 / self.config.gauss_std)
@@ -553,62 +540,34 @@ class MOGEN(object):
     real_seq_img = tf.concat(real_seq_img, axis = 2)
     first_pt_map = get_gaussian_maps(tf.reshape(landmarks, [-1, self.config.n_maps, 2]), [128, 128], 1.0 / self.config.gauss_std)
 
-    # compute loss
-    self.loss_G_ = self.loss_D_ = None
-    if self.train_mode == True:
-      # compute the losses:
-      self.loss_D_ = self.loss_D(pred_seq, tf.reshape(real_seq, [-1, 32, self.config.n_maps*2]))
-      self.loss_G_ = self.loss_G(pred_seq, tf.reshape(real_seq, [-1, 32, self.config.n_maps*2]), mu, stddev)
-      t_vars = tf.trainable_variables()
-      G_vars = [var for var in t_vars if 'discr' not in var.name]
-      D_vars = [var for var in t_vars if 'discr' in var.name]
-      lr = tf.train.exponential_decay(self.train_config.lr.start_val, self._global_step, self.train_config.lr.step, self.train_config.lr.decay)
-      self.lr_ = tf.summary.scalar('lr', lr)
-      self.train_op_D = tf.train.AdamOptimizer(lr, beta1=0.5, beta2=0.999).minimize(self.loss_D_, var_list=D_vars)
-      self.train_op_G = tf.train.AdamOptimizer(lr, beta1=0.5, beta2=0.999).minimize(self.loss_G_, var_list=G_vars, global_step=self._global_step)
-    
-    # visualize images:
     self.first_pt = tf.summary.image('first_pt', self.colorize_landmark_maps(first_pt_map), max_outputs=2)
     self.im_sum = tf.summary.image('im', (im+1)/2.0*255.0, max_outputs=2)
     self.pred_p_seq = tf.summary.image('predicted_pose_sequence', self.colorize_landmark_maps(pred_seq_img), max_outputs=2)
     self.real_p_seq = tf.summary.image('real_pose_sequence', self.colorize_landmark_maps(real_seq_img), max_outputs=2)
     self.image_summary = tf.summary.merge([self.im_sum, self.first_pt, self.pred_p_seq, self.real_p_seq])
-    pred_seq_map = []
-    for i in range(32):
-      gauss_map = get_gaussian_maps(tf.reshape(pred_seq[:,i,::], [-1, self.config.n_maps, 2]), [128, 128], 1.0 / self.config.gauss_std, mode=gauss_mode)
-      pred_seq_map.append(tf.expand_dims(self.colorize_landmark_maps(gauss_map),0))
-    pred_seq_map = tf.concat(pred_seq_map, axis=0)
-    real_seq_map = []
-    for i in range(32):
-      gauss_map = get_gaussian_maps(real_seq[:,i,::], [128, 128], 1.0 / self.config.gauss_std, mode=gauss_mode)
-      real_seq_map.append(tf.expand_dims(self.colorize_landmark_maps(gauss_map),0))
-    real_seq_map = tf.concat(real_seq_map, axis=0)
-    self.tensor = {'im': im, 'pred_p_seq': pred_seq, 'real_p_seq': real_seq, \
-                   'first_pt': self.colorize_landmark_maps(get_gaussian_maps(landmarks, [128, 128], 1.0 / self.config.gauss_std, mode=gauss_mode)),\
-                   'real_seq_map': tf.transpose(real_seq_map, perm=[1,0,2,3,4]), 'pred_seq_map': tf.transpose(pred_seq_map, perm=[1,0,2,3,4])}
 
   def train_loop(self, opts, train_dataset, test_dataset, training_pl, handle_pl, num_steps, checkpoint_fname, reset_global_step = -1, vars_to_restore='all',\
                 ignore_missing_vars=False, exclude_vars=False):
     tf.logging.set_verbosity(tf.logging.INFO)
-    # define iterators
+    # define and set up iterators
     train_iterator = train_dataset.make_initializable_iterator()
     test_iterator = test_dataset.make_initializable_iterator()
     global_init = tf.global_variables_initializer()
     local_init = tf.local_variables_initializer()
     self.sess.run([global_init,local_init])
-    # set up iterators
+
     train_handle = self.sess.run(train_iterator.string_handle())
     self.sess.run(train_iterator.initializer)
     test_handle = self.sess.run(test_iterator.string_handle())
+    
     # create a summary writer:
     train_writer = tf.summary.FileWriter(osp.join(opts['log_dir'], 'train'), self.sess.graph)
     test_writer = tf.summary.FileWriter(osp.join(opts['log_dir'], 'test'))
     # create a check-pointer:
     saver = tf.train.Saver(tf.global_variables(), max_to_keep=None)
-    # get the value of the global-step:
-    start_step = self.sess.run(self._global_step)
     
     # run the training loop:
+    start_step = self.sess.run(self._global_step)
     begin_time = time.time()
     for step in range(int(start_step), num_steps):
       start_time = time.time()
@@ -627,15 +586,13 @@ class MOGEN(object):
         loss_value_G, _ = self.sess.run([self.loss_G_, self.train_op_G], feed_dict=feed_dict)
       duration = time.time() - start_time
 
-      # make sure that we have non NaNs:
-      assert not np.isnan(loss_value_D), 'D_Model diverged with loss = NaN'
-      assert not np.isnan(loss_value_G), 'G_Model diverged with loss = NaN'
       if step % 250 == 0:
         # print stats for this batch:
         examples_per_sec = opts['batch_size'] / float(duration)
         format_str = '%s: step %d, loss_D = %.4f, loss_G = %.4f (%.1f examples/sec) %.3f sec/batch'
         tf.logging.info(format_str % (datetime.now(), step, loss_value_D, loss_value_G,
                         examples_per_sec, duration))
+        
       # periodically test on test set
       if test_dataset and step % opts['n_test'] == 0:
         feed_dict = {handle_pl: test_handle, training_pl: False}
@@ -663,17 +620,17 @@ class MOGEN(object):
             print('iteration through test set finished')
             break
           test_iter += 1
-      # periodically checkpoint:
+          
+      # periodically save checkpoint:
       if step % opts['n_checkpoint'] == 0:
         checkpoint_path = osp.join(opts['log_dir'],'model.ckpt')
         saver.save(self.sess, checkpoint_path, global_step=step)
+        
     total_time = time.time()-begin_time
     samples_per_sec = opts['batch_size'] * num_steps / float(total_time)
     print('Avg. samples per second %.3f'%samples_per_sec)
 
 #######################
-
-
 
   
 class EXT_KP(object):
@@ -721,7 +678,7 @@ class EXT_KP(object):
     else:
       raise Exception('model file does not exist at: ' + checkpoint_fname)
 
-    ########## compute output from trainset ##########
+    ########## compute keypoints for trainset ##########
     feed_dict = {handle_pl: train_handle, training_pl: False}
     self.sess.run(train_iterator.initializer)
     step = 0
@@ -734,7 +691,7 @@ class EXT_KP(object):
         print('iteration through train set finished')
         break
 
-    ########## compute output from testset ##########
+    ########## compute keypoints for testset ##########
     feed_dict = {handle_pl: test_handle, training_pl: False}
     self.sess.run(test_iterator.initializer)
     while True:
@@ -746,13 +703,9 @@ class EXT_KP(object):
         print('iteration through test set finished')
         break
         
-        
-        
 #######################
-
         
 class EVAL(object):
-
   def __init__(self, sess, config, cell_info, vae_dim, global_step, training, dtype=tf.float32, name='EVAL'):
     self.config = config.model
     self.train_config = config.training
@@ -772,8 +725,6 @@ class EVAL(object):
     im_ = tf.tile(im_, [1, 32, 1, 1, 1])
     im_ = tf.reshape(im_, [-1, 128, 128, 3])
 
-    im_size = im.shape.as_list()[1:3]
-    assert im_size[0] == im_size[1]
     im_size = im_size[0]
     embeddings = self.image_encoder(im)
     im_emb_size = embeddings[-2].shape.as_list()[-3:]

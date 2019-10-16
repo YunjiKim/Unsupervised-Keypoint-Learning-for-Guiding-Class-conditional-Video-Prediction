@@ -33,23 +33,23 @@ For the training, pretrained VGG19 network is needed. It can be downloaded [here
 
 #### 1. Train the keypoints detector & image translator
 ```
-python train_kd_it.py configs/penn.yaml
+python train_kd_it.py --config_root configs/penn.yaml
 ```
 
 #### 2. Make pseudo-keypoints labels
 ```
-python make_labels.py configs/penn.yaml
+python make_labels.py --config_root configs/penn.yaml
 ```
 
 #### 3. Train the motion generator
 ```
-python train_mogen.py configs/penn.yaml
+python train_mogen.py --config_root configs/penn.yaml
 ```
 
 
 ## III. Test
 ```
-python eval.py configs/penn.yaml
+python eval.py --config_root configs/penn.yaml
 ```
 
 

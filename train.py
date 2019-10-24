@@ -115,7 +115,7 @@ def main():
 
 
 def _get_model_by_mode(mode, config, global_step):
-    if mode == 'stage1':
+    if mode == 'detector_translator':
         return DetectorTranslatorModel(config, global_step, is_training=True)
     if mode == 'motion_generator':
         return MotionGeneratorModel(config, global_step, is_training=True)

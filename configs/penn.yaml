@@ -1,7 +1,7 @@
 paths:
   data_dir: './datasets/penn'
   vggnet: './pretrained/vgg19.npy'
-  log_dir: 'results/run2'
+  log_dir: 'results/'
 
 training:
   n_steps: 30000000

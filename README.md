@@ -57,7 +57,8 @@ python train.py --mode motion_generator --config configs/penn.yaml
 ```
 python evaluate.py --config configs/penn.yaml \
     --checkpoint_stage1 {path/to/detector_translator/checkpoint} \
-    --checkpoint_stage2 {path/to/motion_generator/checkpoint}
+    --checkpoint_stage2 {path/to/motion_generator/checkpoint} \
+    --save_dir {path/to/save/results}
 ```
 
 

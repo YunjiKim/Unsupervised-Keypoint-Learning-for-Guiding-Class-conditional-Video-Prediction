@@ -12,7 +12,7 @@ from utils import model as model_utils
 class DetectorTranslatorModel(BaseModel):
 
     # name will be used for log management (defined in BaseModel class)
-    name = 'stage1'
+    name = 'detector_translator'
 
     def __init__(self, config, global_step=None, is_training=True):
         super(DetectorTranslatorModel, self).__init__(is_training)

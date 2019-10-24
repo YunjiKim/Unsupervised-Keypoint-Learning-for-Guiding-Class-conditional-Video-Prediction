@@ -1,29 +1,22 @@
 paths:
-  datadir: 'data/penn'
-  vggnet: 'data/vgg19.npy'
-  log_dir: 'results/penn-40pts'
-  checkpoint_kd_it: 'results/penn-40pts'
-  checkpoint_mogen: 'results/penn-40pts'
-  
+  data_dir: './datasets/penn'
+  vggnet: './pretrained/vgg19.npy'
+  log_dir: 'results/run2'
+
 training:
-  dset: penn
-  n_summary: 500
-  n_test: 500
-  n_checkpoint: 20000
+  n_steps: 30000000
+  summary_interval: 500
+  test_interval: 500
+  checkpoint_interval: 20000
+  log_interval: 250
   batch_size: 16
-  n_action: 9
-  cell_info: [1024, 1024]
-  vae_dim: 64
-  checkpoint_fname: ''
   lr:
     start_val: 0.0001
     step: 20000
     decay: 0.95
 
 model:
-  n_maps: 40
-  gauss_std: 0.07
-  render_input_sz: 32
-  n_filters: 32
-  renderer_stride: 2
-  min_res: 16
+  n_pts: 40
+  n_action: 9
+  cell_info: [1024, 1024]
+  vae_dim: 64

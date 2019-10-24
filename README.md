@@ -15,9 +15,9 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 
 ### Dependencies
 
-You can install packages by running pip install -r requirements.txt.
+You can install packages by running pip install -r requirements.txt. <br/>
 Or you can download our prebuilt [docker image](https://cloud.docker.com/repository/registry-1.docker.io/join16/python3-cuda),
-by running `docker pull join16/python3-cuda:3.5-cuda9.0-nips2019`.
+by running `docker pull join16/python3-cuda:3.5-cuda9.0-nips2019`. <br/>
 If you want, you can build docker image manually,
 by running `docker build -t {image_name} .`
 

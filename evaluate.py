@@ -44,8 +44,7 @@ def main():
                                          n_points=n_points, n_action=n_action,
                                          random_order=False,
                                          randomness=False,
-                                         with_image_seq=True,
-                                         max_samples=1)
+                                         with_image_seq=True)
         test_dataset = test_loader.get_dataset(batch_size,
                                                repeat=False,
                                                shuffle=False,

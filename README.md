@@ -9,23 +9,29 @@ An official implementation of the paper "Unsupervised Keypoint Learning for Guid
 ## I. Requirements
 
 - Linux
-- NVIDIA Titan XP
-- Tensorflow 1.3.0
+- NVIDIA GeForce GTX 1080Ti
+- Tensorflow 1.12.0
+- Python3 (>= 3.5.2)
 
-#### ※ Dependencies
+### Dependencies
 
-- Linux
-- NVIDIA Titan XP
-- Tensorflow 1.3.0
+You can install packages by running pip install -r requirements.txt. <br/>
+Or you can download our prebuilt [docker image](https://cloud.docker.com/repository/registry-1.docker.io/join16/python3-cuda),
+by running `docker pull join16/python3-cuda:3.5-cuda9.0-nips2019`. <br/>
+If you want, you can build docker image manually,
+by running `docker build -t {image_name} .`
 
-This is the pre-built [docker image](https://github.com/pytorch/pytorch) that can run this code.
 
 #### ※ Dataset
 This code is for the Penn Action dataset. The dataset can be downloaded [here](http://dreamdragon.github.io/PennAction/).
+After download PennAction.tar.gz, unzip and then run following code to prepare dataset.
+
+```sh
+./prepare_penn_dataset.sh {unzipped_original_dataset_dir} {dest_dir}
+```
 
 #### ※ Pretrained VGG-Net
 For the training, pretrained VGG19 network is needed. It can be downloaded [here](https://github.com/machrisaa/tensorflow-vgg).
-
 
 ## II. Train
 
@@ -33,23 +39,26 @@ For the training, pretrained VGG19 network is needed. It can be downloaded [here
 
 #### 1. Train the keypoints detector & image translator
 ```
-python train_kd_it.py --config_root configs/penn.yaml
+python train.py --mode detector_translator --config configs/penn.yaml
 ```
 
 #### 2. Make pseudo-keypoints labels
 ```
-python make_labels.py --config_root configs/penn.yaml
+python make_pseudo_labels.py --config configs/penn.yaml --checkpoint {path/to/detector_translator/checkpoint}
 ```
 
 #### 3. Train the motion generator
 ```
-python train_mogen.py --config_root configs/penn.yaml
+python train.py --mode motion_generator --config configs/penn.yaml
 ```
 
 
 ## III. Test
 ```
-python eval.py --config_root configs/penn.yaml
+python evaluate.py --config configs/penn.yaml \
+    --checkpoint_stage1 {path/to/detector_translator/checkpoint} \
+    --checkpoint_stage2 {path/to/motion_generator/checkpoint} \
+    --save_dir {path/to/save/results}
 ```
 
 

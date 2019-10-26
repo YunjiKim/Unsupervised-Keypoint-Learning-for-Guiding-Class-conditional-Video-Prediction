@@ -158,12 +158,12 @@ python evaluate.py --config configs/penn.yaml \
    &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/nemo_start.png' width=92 />
    &nbsp;&nbsp;
-   <img src='img/x.png' width=92 />
+   <img src='img/-.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/nemo_real.gif' width=92 />
    &nbsp;&nbsp;
    <img src='img/nemo_ours.gif' width=92 />
-   <img src='img/x.png' width=92 />
+   <img src='img/-.png' width=92 />
    <img src='img/nemo_wichers.gif' width=92 />
    <img src='img/nemo_li.gif' width=92 />
 <br>
@@ -171,12 +171,12 @@ python evaluate.py --config configs/penn.yaml \
    &nbsp;&nbsp;&nbsp;&nbsp;
    <img src='img/mgif_start.png' width=92 />
    &nbsp;&nbsp;
-   <img src='img/x.png' width=92 />
+   <img src='img/-.png' width=92 />
    &nbsp;&nbsp;
    <img src='img/mgif_real.gif' width=92 />
    &nbsp;&nbsp;
    <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/x.png' width=92 />
+   <img src='img/-.png' width=92 />
    <img src='img/mgif_wichers.gif' width=92 />
    <img src='img/mgif_li.gif' width=92 />
 <br>

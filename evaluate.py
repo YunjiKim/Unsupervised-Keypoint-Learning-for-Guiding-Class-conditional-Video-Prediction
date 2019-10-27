@@ -95,8 +95,6 @@ def main():
             outputs_pred_im_crude = outputs['pred_im_crude']
             outputs_current_points = outputs['current_points']
             outputs_future_points = outputs['future_points']
-            # not used
-            # outputs_pred_points = outputs['fut_pt_raw']
 
             batch_dim = outputs['im'].shape[0]
             for batch_idx in range(batch_dim):

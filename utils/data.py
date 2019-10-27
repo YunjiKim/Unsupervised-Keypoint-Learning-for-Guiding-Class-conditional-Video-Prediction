@@ -36,8 +36,7 @@ def apply_random_filter(images):
     return images
 
 
-def center_crop(images, target_size):
-    image = images[0]
+def center_crop(image, target_size):
     w, h = image.size
     half_target_size = target_size // 2
 
@@ -47,9 +46,7 @@ def center_crop(images, target_size):
         ox, oy = int(w / ratio), int(h / ratio)
         ox /= 2.0
 
-        # resize, crop
-        images = [im.resize([ox, oy]) for im in images]
-        images = [im.crop((ox - half_target_size, 0, ox + half_target_size, target_size)) for im in images]
+        crop_size = (ox - half_target_size, 0, ox + half_target_size, target_size)
 
     else:
         # calculating crop size
@@ -57,11 +54,9 @@ def center_crop(images, target_size):
         ox, oy = int(w / ratio), int(h / ratio)
         oy /= 2.0
 
-        # resize, crop
-        images = [im.resize([ox, oy]) for im in images]
-        images = [im.crop((0, oy - half_target_size, target_size, oy + half_target_size)) for im in images]
-
-    return [np.asarray(im) for im in images]
+        crop_size = (0, oy - half_target_size, target_size, oy + half_target_size)
+        
+    return crop_size, ratio
 
 
 def rotate_keypoints(keypoints, rand_val, ox=0, oy=0):

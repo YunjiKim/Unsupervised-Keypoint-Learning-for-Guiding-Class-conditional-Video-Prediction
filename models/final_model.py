@@ -40,7 +40,6 @@ class FinalModel(BaseModel):
         self.input_im = None
         self.input_im_seq = None
         self.input_action_code = None
-        self.input_landmarks = None
         self.input_real_seq = None
 
         # outputs
@@ -51,7 +50,6 @@ class FinalModel(BaseModel):
         # input setup
         self.input_im = inputs['image']
         self.input_im_seq = inputs['real_im_seq']
-        self.input_landmarks = inputs['landmarks']
         self.input_action_code = inputs['action_code']
         self.input_real_seq = inputs['real_seq']
 
@@ -101,13 +99,13 @@ class FinalModel(BaseModel):
         final_output = tf.clip_by_value(final_output, -1, 1)
 
         # visualization outputs
-        current_landmarks_map = model_utils.get_gaussian_maps(tf.reshape(first_pt, [-1, self.n_points, 2]),
+        current_keypoints_map = model_utils.get_gaussian_maps(tf.reshape(first_pt, [-1, self.n_points, 2]),
                                                               [128, 128])
-        future_landmarks_map = model_utils.get_gaussian_maps(tf.reshape(pred_seq, [-1, self.n_points, 2]),
+        future_keypoints_map = model_utils.get_gaussian_maps(tf.reshape(pred_seq, [-1, self.n_points, 2]),
                                                              [128, 128])
-        current_points = tf.reshape(model_utils.colorize_landmark_maps(current_landmarks_map, self.colors),
+        current_points = tf.reshape(model_utils.colorize_point_maps(current_keypoints_map, self.colors),
                                     [-1, IMAGE_SIZE, IMAGE_SIZE, 3])
-        future_points = tf.reshape(model_utils.colorize_landmark_maps(future_landmarks_map, self.colors),
+        future_points = tf.reshape(model_utils.colorize_point_maps(future_keypoints_map, self.colors),
                                    [-1, N_FUTURE_FRAMES, IMAGE_SIZE, IMAGE_SIZE, 3])
 
         # final output tensors

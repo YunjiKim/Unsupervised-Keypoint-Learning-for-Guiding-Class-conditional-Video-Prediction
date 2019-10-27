@@ -128,8 +128,6 @@ def _get_dataloader_by_mode(mode, subset, config):
     data_dir = config['paths']['data_dir']
 
     max_samples = None
-    if is_train:
-        max_samples = 1000
 
     if mode == 'detector_translator':
         return ImagePairDataLoader(data_dir, subset,

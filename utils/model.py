@@ -39,7 +39,7 @@ def get_n_colors(n, pastel_factor=0.9):
     return colors
 
 
-def colorize_landmark_maps(maps, colors):
+def colorize_point_maps(maps, colors):
     n_maps = maps.shape.as_list()[-1]
     hmaps = [tf.expand_dims(maps[..., i], axis=3) * np.reshape(colors[i], [1, 1, 1, 3])
              for i in range(n_maps)]

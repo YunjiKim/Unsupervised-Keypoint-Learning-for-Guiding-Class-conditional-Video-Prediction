@@ -15,18 +15,15 @@ MIN_IMAGE_SEQ_LEN = 663
 
 class KeypointDataLoader(BaseDataLoader):
 
-    def __init__(self, data_dir, subset, max_samples=None):
+    def __init__(self, data_dir, subset):
         super(KeypointDataLoader, self).__init__()
 
         self._data_dir = data_dir
-        self._max_samples = max_samples
 
         with open(osp.join(data_dir, subset + '_set.txt'), 'r') as f:
             self._images = f.read().splitlines()
 
         self._total = len(self._images)
-        if max_samples is not None:
-            self._total = min(max_samples, len(self._images))
         print(subset + 'set : ', self._total)
         pass
 

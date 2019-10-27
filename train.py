@@ -128,13 +128,10 @@ def _get_dataloader_by_mode(mode, subset, config):
     data_dir = config['paths']['data_dir']
 
 
-    max_samples = None
-    
     if mode == 'detector_translator':
         return ImagePairDataLoader(data_dir, subset,
                                    random_order=is_train,
-                                   randomness=is_train,
-                                   max_samples=float('inf'))
+                                   randomness=is_train)
                                    
     elif mode == 'motion_generator':
         model_config = config['model']
@@ -144,8 +141,7 @@ def _get_dataloader_by_mode(mode, subset, config):
         return SequenceDataLoader(data_dir, subset,
                                   n_points=n_points, n_action=n_action,
                                   random_order=is_train,
-                                  randomness=is_train,
-                                   max_samples=max_samples)
+                                  randomness=is_train)
                                    
     else:
         raise Exception('unknown dataloader %s' % mode)

@@ -96,6 +96,9 @@ class FinalModel(BaseModel):
         joint_embedding = tf.concat([embeddings, current_pt_map, pred_pt_map], axis=-1)
         crude_output, mask = networks.translator(joint_embedding, self.is_training)
         final_output = tiled_im * mask + crude_output * (1 - mask)
+        
+        crude_output = tf.clip_by_value(crude_output, -1, 1)
+        final_output = tf.clip_by_value(final_output, -1, 1)
 
         # visualization outputs
         current_landmarks_map = model_utils.get_gaussian_maps(tf.reshape(first_pt, [-1, self.n_points, 2]),

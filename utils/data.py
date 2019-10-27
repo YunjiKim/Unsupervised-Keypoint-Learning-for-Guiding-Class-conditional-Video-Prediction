@@ -64,32 +64,15 @@ def center_crop(images, target_size):
     return [np.asarray(im) for im in images]
 
 
-def rotate_landmarks(landmarks, rand_val, ox=0, oy=0):
+def rotate_keypoints(keypoints, rand_val, ox=0, oy=0):
     qx = ox \
-         + math.cos(math.radians(-rand_val)) * (landmarks[..., 0] - ox) \
-         - math.sin(math.radians(-rand_val)) * (landmarks[..., 1] - oy)
+         + math.cos(math.radians(-rand_val)) * (keypoints[..., 0] - ox) \
+         - math.sin(math.radians(-rand_val)) * (keypoints[..., 1] - oy)
     qy = oy \
-         + math.sin(math.radians(-rand_val)) * (landmarks[..., 0] - ox) \
-         + math.cos(math.radians(-rand_val)) * (landmarks[..., 1] - oy)
+         + math.sin(math.radians(-rand_val)) * (keypoints[..., 0] - ox) \
+         + math.cos(math.radians(-rand_val)) * (keypoints[..., 1] - oy)
 
     return np.concatenate([np.expand_dims(qx, -1), np.expand_dims(qy, -1)], axis=-1)
-
-
-def get_crop_size_from_landmarks(w, h, landmarks, target_image_size):
-    if w > h:
-        ratio = h / float(target_image_size)
-        landmarks = landmarks / ratio
-        crop_min_val = np.min(landmarks[:, :, 0])
-        crop_min_val = int(max(0, min(crop_min_val - 10, w / ratio - target_image_size)))
-        crop_size = (crop_min_val, 0, crop_min_val + target_image_size, target_image_size)
-    else:
-        ratio = w / float(target_image_size)
-        landmarks = landmarks / ratio
-        crop_min_val = np.min(landmarks[:, :, 1])
-        crop_min_val = int(max(0, min(crop_min_val - 10, h / ratio - target_image_size)))
-        crop_size = (0, crop_min_val, target_image_size, crop_min_val + target_image_size)
-
-    return crop_size, ratio
 
 
 def create_one_hot_label(n_classes, idx):

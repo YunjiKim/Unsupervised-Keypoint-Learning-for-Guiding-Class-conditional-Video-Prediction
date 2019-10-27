@@ -43,8 +43,8 @@ class DetectorTranslatorModel(BaseModel):
         self.final_output = None
         self.crude_output = None
         self.mask = None
-        self.current_landmarks_map = None
-        self.future_landmarks_map = None
+        self.current_keypoints_map = None
+        self.future_keypoints_map = None
 
         # losses
         self.loss_D_real = None
@@ -173,14 +173,14 @@ class DetectorTranslatorModel(BaseModel):
         crude_output, mask = networks.translator(joint_embedding, self.is_training)
         final_output = im * mask + crude_output * (1 - mask)
 
-        current_landmarks_map = model_utils.get_gaussian_maps(current_gauss_pt, [128, 128])
-        future_landmarks_map = model_utils.get_gaussian_maps(future_gauss_pt, [128, 128])
+        current_keypoints_map = model_utils.get_gaussian_maps(current_gauss_pt, [128, 128])
+        future_keypoints_map = model_utils.get_gaussian_maps(future_gauss_pt, [128, 128])
 
         self.final_output = final_output
         self.crude_output = crude_output
         self.mask = mask
-        self.current_landmarks_map = current_landmarks_map
-        self.future_landmarks_map = future_landmarks_map
+        self.current_keypoints_map = current_keypoints_map
+        self.future_keypoints_map = future_keypoints_map
         pass
 
     def _compute_loss(self):
@@ -204,8 +204,8 @@ class DetectorTranslatorModel(BaseModel):
 
     def _define_summary(self):
         # output summaries
-        current_points = model_utils.colorize_landmark_maps(self.current_landmarks_map, self.colors)
-        future_points = model_utils.colorize_landmark_maps(self.future_landmarks_map, self.colors)
+        current_points = model_utils.colorize_point_maps(self.current_keypoints_map, self.colors)
+        future_points = model_utils.colorize_point_maps(self.future_keypoints_map, self.colors)
         summary_current_points = tf.summary.image('current_points', current_points, max_outputs=2)
         summary_future_points = tf.summary.image('future_points', future_points, max_outputs=2)
         summary_crude_image = tf.summary.image('future_im_crude',

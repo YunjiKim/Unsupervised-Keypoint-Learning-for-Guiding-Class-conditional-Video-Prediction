@@ -90,18 +90,6 @@ class ImagePairDataLoader(BaseDataLoader):
         image = Image.open(osp.join(self._data_dir, img_path, '{:06d}'.format(im_idx + 1) + '.jpg'))
         future_image = Image.open(osp.join(self._data_dir, img_path, '{:06d}'.format(fu_im_idx + 1) + '.jpg'))
 
-        # load joint and box information
-        if self._randomness:
-            landmark_mat = loadmat(osp.join(self._data_dir, img_path.replace('frames', 'labels') + '.mat'))
-            keypoints = np.concatenate([np.expand_dims(landmark_mat['x'], axis=-1),
-                                        np.expand_dims(landmark_mat['y'], axis=-1)],
-                                       axis=-1)
-            landmarks = keypoints[im_idx, :, :]
-            future_landmarks = keypoints[fu_im_idx, :, :]
-        else:
-            landmarks = None
-            future_landmarks = None
-
         # add randomness
         w, h = image.size
 
@@ -115,9 +103,6 @@ class ImagePairDataLoader(BaseDataLoader):
             ox /= 2.0
             oy /= 2.0
 
-            landmarks = data_utils.rotate_landmarks(landmarks, rand_val, ox, oy)
-            future_landmarks = data_utils.rotate_landmarks(landmarks, rand_val, ox, oy)
-
         if w > h:
             ratio = h / float(IMAGE_SIZE)
 
@@ -125,11 +110,8 @@ class ImagePairDataLoader(BaseDataLoader):
             future_image = future_image.resize([int(w / ratio), int(h / ratio)])
 
             if self._randomness:
-                landmarks = landmarks / ratio
-                future_landmarks = future_landmarks / ratio
-                landmark_min_val = min(np.min(landmarks[:, 0]), np.min(future_landmarks[:, 0]))
-
-                crop_rand_val = random.randint(0, int(max(0, min(landmark_min_val, w / ratio - IMAGE_SIZE))))
+                
+                crop_rand_val = random.randint(0, int(w/ratio-IMAGE_SIZE))
                 should_flip = random.randint(0, 1)
 
                 image = image.crop((crop_rand_val, 0, crop_rand_val + IMAGE_SIZE, IMAGE_SIZE))
@@ -138,14 +120,8 @@ class ImagePairDataLoader(BaseDataLoader):
                 if should_flip:
                     image = image.transpose(Image.FLIP_LEFT_RIGHT)
                     future_image = future_image.transpose(Image.FLIP_LEFT_RIGHT)
-                    landmarks[:, 0] = float(IMAGE_SIZE) - landmarks[:, 0]
-                    future_landmarks[:, 0] = float(IMAGE_SIZE) - future_landmarks[:, 0]
 
                 image, future_image = data_utils.apply_random_filter([image, future_image])
-
-                ## point position calibration and apply horizontal flip
-                landmarks[:, 0] = landmarks[:, 0] - crop_rand_val
-                future_landmarks[:, 0] = future_landmarks[:, 0] - crop_rand_val
 
             else:
                 # just do the center crop
@@ -163,11 +139,8 @@ class ImagePairDataLoader(BaseDataLoader):
             future_image = future_image.resize([int(w / ratio), int(h / ratio)])
 
             if self._randomness:
-                landmarks = landmarks / ratio
-                future_landmarks = future_landmarks / ratio
-                landmark_min_val = min(np.min(landmarks[:, 1]), np.min(future_landmarks[:, 1]))
 
-                crop_rand_val = random.randint(0, int(max(0, min(landmark_min_val, w / ratio - IMAGE_SIZE))))
+                crop_rand_val = random.randint(0, int(h/ratio-IMAGE_SIZE))
                 should_flip = random.randint(0, 1)
 
                 image = image.crop((0, crop_rand_val, IMAGE_SIZE, crop_rand_val + IMAGE_SIZE))
@@ -176,14 +149,8 @@ class ImagePairDataLoader(BaseDataLoader):
                 if should_flip:
                     image = image.transpose(Image.FLIP_LEFT_RIGHT)
                     future_image = future_image.transpose(Image.FLIP_LEFT_RIGHT)
-                    landmarks[:, 0] = float(IMAGE_SIZE) - landmarks[:, 0]
-                    future_landmarks[:, 0] = float(IMAGE_SIZE) - future_landmarks[:, 0]
 
                 image, future_image = data_utils.apply_random_filter([image, future_image])
-
-                # point position calibration and apply horizontal flip
-                landmarks[:, 0] = landmarks[:, 0] - crop_rand_val
-                future_landmarks[:, 0] = future_landmarks[:, 0] - crop_rand_val
 
             else:
                 # just do the center crop

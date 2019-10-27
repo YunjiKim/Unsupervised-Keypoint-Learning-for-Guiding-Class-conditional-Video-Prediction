@@ -40,7 +40,7 @@ class MotionGeneratorModel(BaseModel):
         # inputs
         self.global_step = global_step
         self.input_im = None
-        self.input_landmarks = None
+        self.init_keypoints = None
         self.input_real_seq = None
         self.input_action_code = None
 
@@ -67,7 +67,7 @@ class MotionGeneratorModel(BaseModel):
     def build(self, inputs):
         # input setup
         self.input_im = inputs['image']
-        self.input_landmarks = inputs['landmarks']
+        self.init_keypoints = inputs['keypoints']
         self.input_real_seq = inputs['real_seq']
         self.input_action_code = inputs['action_code']
 
@@ -159,11 +159,11 @@ class MotionGeneratorModel(BaseModel):
         pass
 
     def _define_forward_pass(self):
-        landmarks = self.input_landmarks
+        init_keypoints = self.init_keypoints
         real_seq = self.input_real_seq
         action_code = self.input_action_code
 
-        first_pt = tf.reshape(landmarks, [-1, self.n_points * 2])
+        first_pt = tf.reshape(init_keypoints, [-1, self.n_points * 2])
         if self.is_training:
             mu, stddev = networks.vae_encoder(tf.reshape(real_seq, [-1, N_FUTURE_FRAMES, self.n_points * 2]),
                                               first_pt,
@@ -236,7 +236,7 @@ class MotionGeneratorModel(BaseModel):
     def _get_image_visualization_summary(self):
         pred_seq = self.pred_seq
         real_seq = self.input_real_seq
-        landmarks = self.input_landmarks
+        init_keypoints = self.init_keypoints
 
         # convert pred_seq to images
         pred_seq_img = []
@@ -255,7 +255,7 @@ class MotionGeneratorModel(BaseModel):
             pass
         real_seq_img = tf.concat(real_seq_img, axis=2)
 
-        first_pt_map = model_utils.get_gaussian_maps(tf.reshape(landmarks, [-1, self.n_points, 2]), [128, 128])
+        first_pt_map = model_utils.get_gaussian_maps(tf.reshape(init_keypoints, [-1, self.n_points, 2]), [128, 128])
 
         # image summary
         summary_im = tf.summary.image('im', (self.input_im + 1) / 2.0 * 255.0, max_outputs=2)

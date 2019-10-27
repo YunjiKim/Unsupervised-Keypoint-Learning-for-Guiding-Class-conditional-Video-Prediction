@@ -63,7 +63,7 @@ python evaluate.py --config configs/penn.yaml \
 
 
 #### Pretrained model
-1. [Keypoints Detector & Image Translator](https://www.dropbox.com/home?preview=stage1.zip)
+1. [Keypoints Detector & Image Translator](https://www.dropbox.com/s/0ltjzjc2quvq69t/stage1.zip?dl=0)
 2. [Motion Generator](https://github.com/pytorch/pytorch)
 
 

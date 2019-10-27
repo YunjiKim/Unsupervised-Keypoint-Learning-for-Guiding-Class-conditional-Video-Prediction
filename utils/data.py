@@ -86,7 +86,7 @@ def get_crop_size_from_landmarks(w, h, landmarks, target_image_size):
         ratio = w / float(target_image_size)
         landmarks = landmarks / ratio
         crop_min_val = np.min(landmarks[:, :, 1])
-        crop_min_val = int(max(0, min(crop_min_val - 10, w / ratio - target_image_size)))
+        crop_min_val = int(max(0, min(crop_min_val - 10, h / ratio - target_image_size)))
         crop_size = (0, crop_min_val, target_image_size, crop_min_val + target_image_size)
 
     return crop_size, ratio

@@ -5,7 +5,6 @@ import random
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-from scipy.io import loadmat
 
 from .base_dataloader import BaseDataLoader
 from utils import data as data_utils
@@ -50,7 +49,7 @@ class SequenceDataLoader(BaseDataLoader):
     def get_sample_shape(self):
         shape_dict = {
             'image': [IMAGE_SIZE, IMAGE_SIZE, 3],
-            'landmarks': [self.n_points, 2],
+            'keypoints': [self.n_points, 2],
             'real_seq': [N_SEQUENCE_LEN - 1, self.n_points, 2],
             'action_code': [self.n_action]
         }
@@ -62,7 +61,7 @@ class SequenceDataLoader(BaseDataLoader):
     def get_sample_dtype(self):
         dtype_dict = {
             'image': tf.float32,
-            'landmarks': tf.float32,
+            'keypoints': tf.float32,
             'real_seq': tf.float32,
             'action_code': tf.float32
         }
@@ -90,7 +89,7 @@ class SequenceDataLoader(BaseDataLoader):
         with tf.name_scope('proc_im_pair'):
             inputs_dict = {
                 'image': inputs['image'] * 2.0 - 1.0,
-                'landmarks': inputs['landmarks'],
+                'keypoints': inputs['keypoints'],
                 'real_seq': inputs['real_seq'],
                 'action_code': inputs['action_code']
             }
@@ -136,23 +135,15 @@ class SequenceDataLoader(BaseDataLoader):
                 pass
             real_seq[-1] = half_real_seq[-1]
 
-        # used for cropping
-        landmarks = loadmat(osp.join(self._data_dir, img_path.replace('frames', 'labels') + '.mat'))
-        landmarks = np.concatenate([np.expand_dims(landmarks['x'], axis=-1),
-                                    np.expand_dims(landmarks['y'], axis=-1)],
-                                   axis=-1)
-
-        w, h = image.size
-
         # random rotation
         if self._randomness:
             rotation_rand_val = random.randrange(-15, 16)
             image = image.rotate(rotation_rand_val)
-            real_seq = data_utils.rotate_landmarks(real_seq, rotation_rand_val)
+            real_seq = data_utils.rotate_keypoints(real_seq, rotation_rand_val)
             pass
 
-        # crop image based on landmark position
-        crop_size, ratio = data_utils.get_crop_size_from_landmarks(w, h, landmarks, IMAGE_SIZE)
+        # center crop
+        crop_size, ratio = data_utils.center_crop(image, IMAGE_SIZE)
         image = image.resize([int(w / ratio), int(h / ratio)]).crop(crop_size)
 
         # load images only if with_image_seq = True
@@ -197,7 +188,7 @@ class SequenceDataLoader(BaseDataLoader):
 
         inputs = {
             'image': image / 255.0,
-            'landmarks': real_seq[0, ::],
+            'keypoints': real_seq[0, ::],
             'real_seq': real_seq[1:, ::],
             'action_code': action_label
         }

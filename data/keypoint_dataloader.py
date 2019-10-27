@@ -4,7 +4,6 @@ import os
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-from scipy.io import loadmat
 
 from .base_dataloader import BaseDataLoader
 from utils import data as data_utils
@@ -64,14 +63,9 @@ class KeypointDataLoader(BaseDataLoader):
         img_path, n_act = self._images[idx].split()
         file_len = len(os.listdir(osp.join(self._data_dir, img_path)))
 
-        # load first image & keypoints
+        # load images
         image = Image.open(osp.join(self._data_dir, img_path, '{:06d}'.format(1) + '.jpg'))
-        keypoints = loadmat(osp.join(self._data_dir, img_path.replace('frames', 'labels') + '.mat'))
-        keypoints = np.concatenate([np.expand_dims(keypoints['x'], axis=-1), np.expand_dims(keypoints['y'], axis=-1)],
-                                   axis=-1)
-
-        w, h = image.size
-        crop_size, ratio = data_utils.get_crop_size_from_landmarks(w, h, keypoints, IMAGE_SIZE)
+        crop_size, ratio = data_utils.center_crop(image, IMAGE_SIZE)
 
         image_seq = []
         for i in range(file_len):

@@ -20,14 +20,12 @@ class SequenceDataLoader(BaseDataLoader):
                  n_points, n_action,
                  with_image_seq=False,
                  random_order=True,
-                 max_samples=None,
                  randomness=False):
         super(SequenceDataLoader, self).__init__()
 
         self._data_dir = data_dir
         self._random_order = random_order
         self._randomness = randomness
-        self._max_samples = max_samples
         self._with_image_seq = with_image_seq
 
         # model dependent configurations
@@ -38,8 +36,6 @@ class SequenceDataLoader(BaseDataLoader):
             self._images = f.read().splitlines()
 
         self._total = len(self._images)
-        if max_samples is not None:
-            self._total = min(max_samples, len(self._images))
         print(subset + 'set : ', self._total)
         pass
 
@@ -73,11 +69,11 @@ class SequenceDataLoader(BaseDataLoader):
     def sample_generator(self):
         if self._random_order:
             current_idx = 0
-            while (self._max_samples is None) or (current_idx < self._max_samples):
+            while (self._total is None) or (current_idx < self._total):
                 idx = np.random.randint(len(self._images))
                 yield self._get_image_at(idx)
 
-                if self._max_samples is not None:
+                if self._total is not None:
                     current_idx += 1
                 pass
 

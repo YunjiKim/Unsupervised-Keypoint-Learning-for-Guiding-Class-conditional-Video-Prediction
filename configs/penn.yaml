@@ -1,6 +1,6 @@
 paths:
-  data_dir: './datasets/penn'
-  vggnet: './pretrained/vgg19.npy'
+  data_dir: './data/penn'
+  vggnet: './data/vgg19.npy'
   log_dir: 'results/'
 
 training:

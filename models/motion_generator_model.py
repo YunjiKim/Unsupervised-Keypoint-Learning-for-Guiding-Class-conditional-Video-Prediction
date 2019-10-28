@@ -243,7 +243,7 @@ class MotionGeneratorModel(BaseModel):
         for i in range(N_FUTURE_FRAMES):
             gauss_map = model_utils.get_gaussian_maps(tf.reshape(pred_seq[:, i, ::], [-1, self.n_points, 2]),
                                                       [64, 64])
-            pred_seq_img.append(model_utils.colorize_landmark_maps(gauss_map, self.colors))
+            pred_seq_img.append(model_utils.colorize_point_maps(gauss_map, self.colors))
             pass
         pred_seq_img = tf.concat(pred_seq_img, axis=2)
 
@@ -251,7 +251,7 @@ class MotionGeneratorModel(BaseModel):
         real_seq_img = []
         for i in range(N_FUTURE_FRAMES):
             gauss_map = model_utils.get_gaussian_maps(real_seq[:, i, ::], [64, 64])
-            real_seq_img.append(model_utils.colorize_landmark_maps(gauss_map, self.colors))
+            real_seq_img.append(model_utils.colorize_point_maps(gauss_map, self.colors))
             pass
         real_seq_img = tf.concat(real_seq_img, axis=2)
 
@@ -260,13 +260,13 @@ class MotionGeneratorModel(BaseModel):
         # image summary
         summary_im = tf.summary.image('im', (self.input_im + 1) / 2.0 * 255.0, max_outputs=2)
         summary_first_pt = tf.summary.image('first_pt',
-                                            model_utils.colorize_landmark_maps(first_pt_map, self.colors),
+                                            model_utils.colorize_point_maps(first_pt_map, self.colors),
                                             max_outputs=2)
         summary_pred_p_seq = tf.summary.image('predicted_pose_sequence',
-                                              model_utils.colorize_landmark_maps(pred_seq_img, self.colors),
+                                              model_utils.colorize_point_maps(pred_seq_img, self.colors),
                                               max_outputs=2)
         summary_real_p_seq = tf.summary.image('real_pose_sequence',
-                                              model_utils.colorize_landmark_maps(real_seq_img, self.colors),
+                                              model_utils.colorize_point_maps(real_seq_img, self.colors),
                                               max_outputs=2)
 
         return tf.summary.merge([summary_im,

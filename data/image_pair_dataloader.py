@@ -5,7 +5,6 @@ import random
 import tensorflow as tf
 import numpy as np
 from PIL import Image
-from scipy.io import loadmat
 
 from .base_dataloader import BaseDataLoader
 from utils import data as data_utils

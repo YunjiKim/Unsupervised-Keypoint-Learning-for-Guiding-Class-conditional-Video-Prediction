@@ -27,7 +27,7 @@ This code is for the Penn Action dataset. The dataset can be downloaded [here](h
 After download PennAction.tar.gz, unzip and then run following code to prepare dataset.
 
 ```sh
-./prepare_penn_dataset.sh {unzipped_original_dataset_dir} {dest_dir}
+./prepare_penn_dataset.sh {unzipped_original_dataset_dir}
 ```
 
 #### ※ Pretrained VGG-Net

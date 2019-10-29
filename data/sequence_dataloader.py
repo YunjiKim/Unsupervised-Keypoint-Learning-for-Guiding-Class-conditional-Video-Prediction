@@ -139,6 +139,7 @@ class SequenceDataLoader(BaseDataLoader):
             pass
 
         # center crop
+        w,h = image.size
         crop_size, ratio = data_utils.center_crop(image, IMAGE_SIZE)
         image = image.resize([int(w / ratio), int(h / ratio)]).crop(crop_size)
 

@@ -34,7 +34,7 @@ def main():
     with tf.Session(config=session_config) as sess:
         # import dataset
         train_loader = KeypointDataLoader(data_dir, 'train')
-        test_loader = KeypointDataLoader(data_dir, 'test', max_samples=1000)
+        test_loader = KeypointDataLoader(data_dir, 'test')
         train_dataset = train_loader.get_dataset(batch_size,
                                                  repeat=False,
                                                  shuffle=False,

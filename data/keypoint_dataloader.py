@@ -62,6 +62,7 @@ class KeypointDataLoader(BaseDataLoader):
 
         # load images
         image = Image.open(osp.join(self._data_dir, img_path, '{:06d}'.format(1) + '.jpg'))
+        w,h = image.size
         crop_size, ratio = data_utils.center_crop(image, IMAGE_SIZE)
 
         image_seq = []

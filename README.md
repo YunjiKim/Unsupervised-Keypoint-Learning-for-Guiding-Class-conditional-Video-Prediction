@@ -1,5 +1,5 @@
 # Unsupervised Keypoint Learning <br/> for Guiding Class-Conditional Video Prediction
-An official implementation of the paper "Unsupervised Keypoint Learning for Guiding Class-Conditional Video Prediction", NeurIPS, 2019. [[paper](https://arxiv.org/abs/1910.02027)] [[supp](https://arxiv.org/abs/1910.02027)]
+An official implementation of the paper "Unsupervised Keypoint Learning for Guiding Class-Conditional Video Prediction", NeurIPS, 2019. [[paper](https://arxiv.org/abs/1910.02027)] [[supp](https://papers.nips.cc/paper/8637-unsupervised-keypoint-learning-for-guiding-class-conditional-video-prediction-supplemental.zip)]
 
 <p align="left">
   <img src='img/model_overview.png' width="860" title="Overview">

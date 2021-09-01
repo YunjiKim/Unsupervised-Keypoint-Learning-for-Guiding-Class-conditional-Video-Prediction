@@ -73,43 +73,43 @@ python evaluate.py --config configs/penn.yaml \
 
 #### Penn Action
 <p>
-   <img src='img/tennis_serve.gif' width=90 />
-   <img src='img/tennis_forehand.gif' width=90 />
-   <img src='img/pull_up.gif' width=90 />
-   <img src='img/jumping_jacks.gif' width=90 />
-   <img src='img/golf_swing.gif' width=90 />
-   <img src='img/clean_and_jerk.gif' width=90 />
-   <img src='img/baseball_swing.gif' width=90 />
-   <img src='img/baseball_pitch.gif' width=90 />
-   <img src='img/squats.gif' width=90 />
+   <img src='img/tennis_serve.gif' width=88 />
+   <img src='img/tennis_forehand.gif' width=88 />
+   <img src='img/pull_up.gif' width=88 />
+   <img src='img/jumping_jacks.gif' width=88 />
+   <img src='img/golf_swing.gif' width=88 />
+   <img src='img/clean_and_jerk.gif' width=88 />
+   <img src='img/baseball_swing.gif' width=88 />
+   <img src='img/baseball_pitch.gif' width=88 />
+   <img src='img/squats.gif' width=88 />
 <br>
-   <img src='img/classes.png' width=842 />
+   <img src='img/classes.png' width=824 />
 </p>
 
 #### UvA-NEMO
 <p>
-   <img src='img/nemo_0.gif' width=90 />
-   <img src='img/nemo_1.gif' width=90 />
-   <img src='img/nemo_2.gif' width=90 />
-   <img src='img/nemo_3.gif' width=90 />
-   <img src='img/nemo_4.gif' width=90 />
-   <img src='img/nemo_5.gif' width=90 />
-   <img src='img/nemo_6.gif' width=90 />
-   <img src='img/nemo_7.gif' width=90 />
-   <img src='img/nemo_8.gif' width=90 />
+   <img src='img/nemo_0.gif' width=88 />
+   <img src='img/nemo_1.gif' width=88 />
+   <img src='img/nemo_2.gif' width=88 />
+   <img src='img/nemo_3.gif' width=88 />
+   <img src='img/nemo_4.gif' width=88 />
+   <img src='img/nemo_5.gif' width=88 />
+   <img src='img/nemo_6.gif' width=88 />
+   <img src='img/nemo_7.gif' width=88 />
+   <img src='img/nemo_8.gif' width=88 />
 </p>
 
 #### MGIF
 <p>
-   <img src='img/mgif_0.gif' width=90 />
-   <img src='img/mgif_1.gif' width=90 />
-   <img src='img/mgif_2.gif' width=90 />
-   <img src='img/mgif_3.gif' width=90 />
-   <img src='img/mgif_4.gif' width=90 />
-   <img src='img/mgif_5.gif' width=90 />
-   <img src='img/mgif_6.gif' width=90 />
-   <img src='img/mgif_7.gif' width=90 />
-   <img src='img/mgif_8.gif' width=90 />
+   <img src='img/mgif_0.gif' width=88 />
+   <img src='img/mgif_1.gif' width=88 />
+   <img src='img/mgif_2.gif' width=88 />
+   <img src='img/mgif_3.gif' width=88 />
+   <img src='img/mgif_4.gif' width=88 />
+   <img src='img/mgif_5.gif' width=88 />
+   <img src='img/mgif_6.gif' width=88 />
+   <img src='img/mgif_7.gif' width=88 />
+   <img src='img/mgif_8.gif' width=88 />
 </p>
 
 ###### ※※※ Qualitative comparison of the results. ※※※

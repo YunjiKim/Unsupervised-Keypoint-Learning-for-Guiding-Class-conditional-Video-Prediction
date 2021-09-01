@@ -73,125 +73,125 @@ python evaluate.py --config configs/penn.yaml \
 
 #### Penn Action
 <p>
-   <img src='img/tennis_serve.gif' width=92 />
-   <img src='img/tennis_forehand.gif' width=92 />
-   <img src='img/pull_up.gif' width=92 />
-   <img src='img/jumping_jacks.gif' width=92 />
-   <img src='img/golf_swing.gif' width=92 />
-   <img src='img/clean_and_jerk.gif' width=92 />
-   <img src='img/baseball_swing.gif' width=92 />
-   <img src='img/baseball_pitch.gif' width=92 />
-   <img src='img/squats.gif' width=92 />
+   <img src='img/tennis_serve.gif' width=90 />
+   <img src='img/tennis_forehand.gif' width=90 />
+   <img src='img/pull_up.gif' width=90 />
+   <img src='img/jumping_jacks.gif' width=90 />
+   <img src='img/golf_swing.gif' width=90 />
+   <img src='img/clean_and_jerk.gif' width=90 />
+   <img src='img/baseball_swing.gif' width=90 />
+   <img src='img/baseball_pitch.gif' width=90 />
+   <img src='img/squats.gif' width=90 />
 <br>
-   <img src='img/classes.png' width=860 />
+   <img src='img/classes.png' width=842 />
 </p>
 
 #### UvA-NEMO
 <p>
-   <img src='img/nemo_0.gif' width=92 />
-   <img src='img/nemo_1.gif' width=92 />
-   <img src='img/nemo_2.gif' width=92 />
-   <img src='img/nemo_3.gif' width=92 />
-   <img src='img/nemo_4.gif' width=92 />
-   <img src='img/nemo_5.gif' width=92 />
-   <img src='img/nemo_6.gif' width=92 />
-   <img src='img/nemo_7.gif' width=92 />
-   <img src='img/nemo_8.gif' width=92 />
+   <img src='img/nemo_0.gif' width=90 />
+   <img src='img/nemo_1.gif' width=90 />
+   <img src='img/nemo_2.gif' width=90 />
+   <img src='img/nemo_3.gif' width=90 />
+   <img src='img/nemo_4.gif' width=90 />
+   <img src='img/nemo_5.gif' width=90 />
+   <img src='img/nemo_6.gif' width=90 />
+   <img src='img/nemo_7.gif' width=90 />
+   <img src='img/nemo_8.gif' width=90 />
 </p>
 
 #### MGIF
 <p>
-   <img src='img/mgif_0.gif' width=92 />
-   <img src='img/mgif_1.gif' width=92 />
-   <img src='img/mgif_2.gif' width=92 />
-   <img src='img/mgif_3.gif' width=92 />
-   <img src='img/mgif_4.gif' width=92 />
-   <img src='img/mgif_5.gif' width=92 />
-   <img src='img/mgif_6.gif' width=92 />
-   <img src='img/mgif_7.gif' width=92 />
-   <img src='img/mgif_8.gif' width=92 />
+   <img src='img/mgif_0.gif' width=90 />
+   <img src='img/mgif_1.gif' width=90 />
+   <img src='img/mgif_2.gif' width=90 />
+   <img src='img/mgif_3.gif' width=90 />
+   <img src='img/mgif_4.gif' width=90 />
+   <img src='img/mgif_5.gif' width=90 />
+   <img src='img/mgif_6.gif' width=90 />
+   <img src='img/mgif_7.gif' width=90 />
+   <img src='img/mgif_8.gif' width=90 />
 </p>
 
 ###### ※※※ Qualitative comparison of the results. ※※※
 
 <p align="center">
-   <img src='img/tb_blank.png' width=92 />
+   <img src='img/tb_blank.png' width=90 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/tb_head_1.png' width=92 />
+   <img src='img/tb_head_1.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/tb_head_2.png' width=92 />
+   <img src='img/tb_head_2.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/tb_blank.png' width=92 />
+   <img src='img/tb_blank.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/tb_blank.png' width=92 />
-   <img src='img/tb_head_3.png' width=92 />
-   <img src='img/tb_blank.png' width=92 />
-   <img src='img/tb_blank.png' width=92 />
+   <img src='img/tb_blank.png' width=90 />
+   <img src='img/tb_head_3.png' width=90 />
+   <img src='img/tb_blank.png' width=90 />
+   <img src='img/tb_blank.png' width=90 />
 <br>
-   <img src='img/penn_text.png' width=92 />
+   <img src='img/penn_text.png' width=90 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/penn_start.png' width=92 />
+   <img src='img/penn_start.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/input_act.png' width=92 />
+   <img src='img/input_act.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/penn_real.gif' width=92 />
+   <img src='img/penn_real.gif' width=90 />
    &nbsp;&nbsp;
-   <img src='img/penn_ours.gif' width=92 />
-   <img src='img/penn_villegas.gif' width=92 />
-   <img src='img/penn_wichers.gif' width=92 />
-   <img src='img/penn_li.gif' width=92 />
+   <img src='img/penn_ours.gif' width=90 />
+   <img src='img/penn_villegas.gif' width=90 />
+   <img src='img/penn_wichers.gif' width=90 />
+   <img src='img/penn_li.gif' width=90 />
 <br>
-   <img src='img/penn_text.png' width=92 />
+   <img src='img/penn_text.png' width=90 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/penn_start_2.png' width=92 />
+   <img src='img/penn_start_2.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/input_act_2.png' width=92 />
+   <img src='img/input_act_2.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/penn_real_2.gif' width=92 />
+   <img src='img/penn_real_2.gif' width=90 />
    &nbsp;&nbsp;
-   <img src='img/penn_ours_2.gif' width=92 />
-   <img src='img/penn_villegas_2.gif' width=92 />
-   <img src='img/penn_wichers_2.gif' width=92 />
-   <img src='img/penn_li_2.gif' width=92 />
+   <img src='img/penn_ours_2.gif' width=90 />
+   <img src='img/penn_villegas_2.gif' width=90 />
+   <img src='img/penn_wichers_2.gif' width=90 />
+   <img src='img/penn_li_2.gif' width=90 />
 <br>
-   <img src='img/nemo_text.png' width=92 />
+   <img src='img/nemo_text.png' width=90 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/nemo_start.png' width=92 />
+   <img src='img/nemo_start.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/-.png' width=92 />
+   <img src='img/-.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/nemo_real.gif' width=92 />
+   <img src='img/nemo_real.gif' width=90 />
    &nbsp;&nbsp;
-   <img src='img/nemo_ours.gif' width=92 />
-   <img src='img/-.png' width=92 />
-   <img src='img/nemo_wichers.gif' width=92 />
-   <img src='img/nemo_li.gif' width=92 />
+   <img src='img/nemo_ours.gif' width=90 />
+   <img src='img/-.png' width=90 />
+   <img src='img/nemo_wichers.gif' width=90 />
+   <img src='img/nemo_li.gif' width=90 />
 <br>
-   <img src='img/mgif_text.png' width=92 />
+   <img src='img/mgif_text.png' width=90 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/mgif_start.png' width=92 />
+   <img src='img/mgif_start.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/-.png' width=92 />
+   <img src='img/-.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/mgif_real.gif' width=92 />
+   <img src='img/mgif_real.gif' width=90 />
    &nbsp;&nbsp;
-   <img src='img/mgif_ours.gif' width=92 />
-   <img src='img/-.png' width=92 />
-   <img src='img/mgif_wichers.gif' width=92 />
-   <img src='img/mgif_li.gif' width=92 />
+   <img src='img/mgif_ours.gif' width=90 />
+   <img src='img/-.png' width=90 />
+   <img src='img/mgif_wichers.gif' width=90 />
+   <img src='img/mgif_li.gif' width=90 />
 <br>
-   <img src='img/tb_blank_2.png' width=92 />
+   <img src='img/tb_blank_2.png' width=90 />
    &nbsp;&nbsp;&nbsp;&nbsp;
-   <img src='img/tb_blank_2.png' width=92 />
+   <img src='img/tb_blank_2.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/tb_blank_2.png' width=92 />
+   <img src='img/tb_blank_2.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/tb_tail_1.png' width=92 />
+   <img src='img/tb_tail_1.png' width=90 />
    &nbsp;&nbsp;
-   <img src='img/tb_tail_2.png' width=92 />
-   <img src='img/tb_tail_3.png' width=92 />
-   <img src='img/tb_tail_4.png' width=92 />
-   <img src='img/tb_tail_5.png' width=92 />
+   <img src='img/tb_tail_2.png' width=90 />
+   <img src='img/tb_tail_3.png' width=90 />
+   <img src='img/tb_tail_4.png' width=90 />
+   <img src='img/tb_tail_5.png' width=90 />
 </p>
 
 ## V. Related Works
